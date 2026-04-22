@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awsales · Playbook Show-Up 80%</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #0a0a0a;
+    letter-spacing: -0.01em;
+  }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+  .text-aw-blue { color: #1573F8; }
+  .bg-aw-blue { background: #1573F8; }
+  .border-aw-blue { border-color: #1573F8; }
+  .hover\:bg-aw-blue-dark:hover { background: #0D5CD6; }
+
+  .text-gray-soft { color: #6B7280; }
+  .text-gray-muted { color: #9CA3AF; }
+  .bg-gray-subtle { background: #FAFAFA; }
+  .bg-gray-card { background: #F5F5F7; }
+  .border-gray-subtle { border-color: #E8E8E8; }
+
+  h1, h2, h3, h4 { letter-spacing: -0.03em; font-weight: 700; }
+
+  /* Logo Awsales */
+  .logo-text {
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    font-size: 1.5rem;
+  }
+  .logo-text .aw { color: #1573F8; }
+  .logo-text .sales { color: #0a0a0a; }
+
+  /* Tab navigation */
+  .tab-btn {
+    position: relative;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #6B7280;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  .tab-btn:hover { color: #0a0a0a; }
+  .tab-btn.active {
+    color: #0a0a0a;
+    border-bottom-color: #1573F8;
+    font-weight: 600;
+  }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Cards */
+  .card {
+    background: #FAFAFA;
+    border: 1px solid #E8E8E8;
+    border-radius: 16px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #D4D4D8; }
+
+  .card-highlight {
+    background: #F0F6FF;
+    border: 1px solid #C7DBFE;
+    border-radius: 16px;
+  }
+
+  .card-dark {
+    background: #0a0a0a;
+    color: #ffffff;
+    border-radius: 16px;
+  }
+
+  /* Pill button */
+  .btn-pill {
+    background: #0a0a0a;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  /* Display numbers */
+  .display-num {
+    font-weight: 800;
+    color: #1573F8;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  /* Fala blocks (script specific) */
+  .fala-sdr {
+    background: #F0F6FF;
+    border-left: 3px solid #1573F8;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .fala-cliente {
+    background: #F5F5F7;
+    border-left: 3px solid #9CA3AF;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .direcao {
+    background: #FAFAFA;
+    border: 1px dashed #D4D4D8;
+    border-radius: 12px;
+  }
+
+  .momento-card {
+    background: #ffffff;
+    border: 1px solid #E8E8E8;
+    border-radius: 16px;
+    position: relative;
+  }
+  .momento-card::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 0;
+    width: 3px; height: 40px;
+    background: #1573F8;
+    border-radius: 0 3px 3px 0;
+  }
+
+  /* Section numbers */
+  .section-num {
+    font-weight: 800;
+    font-size: 4rem;
+    color: #1573F8;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  /* Dimensional D card */
+  .d-card {
+    background: #ffffff;
+    border: 1px solid #E8E8E8;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .d-card-critical {
+    background: linear-gradient(135deg, #F0F6FF 0%, #ffffff 100%);
+    border: 1px solid #1573F8;
+  }
+
+  .big-d {
+    font-weight: 900;
+    color: #1573F8;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  /* Script body */
+  .script-body {
+    background: #FAFAFA;
+    border: 1px solid #E8E8E8;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #E8E8E8 15%, #E8E8E8 85%, transparent 100%);
+  }
+
+  /* Hover lift effect */
+  details summary::-webkit-details-marker { display: none; }
+  details summary { cursor: pointer; list-style: none; }
+  details[open] .chevron { transform: rotate(90deg); }
+  .chevron { transition: transform 0.2s; }
+
+  /* WhatsApp bubble */
+  .wa-bubble-out {
+    background: #DCF8C6;
+    border-radius: 12px 12px 4px 12px;
+    padding: 12px 16px;
+    max-width: 85%;
+    margin-left: auto;
+    position: relative;
+  }
+  .wa-bubble-in {
+    background: #ffffff;
+    border: 1px solid #E8E8E8;
+    border-radius: 12px 12px 12px 4px;
+    padding: 12px 16px;
+    max-width: 85%;
+    margin-right: auto;
+  }
+  .wa-time {
+    font-size: 0.7rem;
+    color: #6B7280;
+    margin-top: 4px;
+  }
+  .wa-container {
+    background: #E5DDD5;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4CBC2' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  /* Table */
+  table { border-collapse: collapse; }
+  table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: #6B7280;
+  }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+
+  /* Active nav indicator */
+  .nav-indicator {
+    width: 6px;
+    height: 6px;
+    background: #1573F8;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-subtle">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="logo-text">
+        <span class="aw">Aw</span><span class="sales">sales</span>
+      </div>
+      <nav class="hidden md:flex items-center">
+        <button class="tab-btn active" data-tab="playbook">Playbook Show-Up</button>
+        <button class="tab-btn" data-tab="ligacao">Script · Ligação</button>
+        <button class="tab-btn" data-tab="whatsapp">Script · WhatsApp</button>
+      </nav>
+      <div class="hidden md:block">
+        <span class="text-xs text-gray-soft">Arthur · Head of Sales</span>
+      </div>
+    </div>
+    <!-- Mobile nav -->
+    <div class="md:hidden flex overflow-x-auto border-t border-gray-subtle">
+      <button class="tab-btn active shrink-0" data-tab="playbook">Playbook</button>
+      <button class="tab-btn shrink-0" data-tab="ligacao">Ligação</button>
+      <button class="tab-btn shrink-0" data-tab="whatsapp">WhatsApp</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- =================== TAB 1 · PLAYBOOK ======================= -->
+<!-- ============================================================ -->
+<div id="playbook" class="tab-content active">
+
+<!-- HERO -->
+<section class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="flex items-center gap-2 mb-8">
+      <span class="nav-indicator"></span>
+      <span class="text-xs font-medium text-gray-soft tracking-widest uppercase">Playbook · Show-Up 80%</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.05]">
+      Transformar reuniões agendadas em <span class="text-aw-blue">reuniões realizadas.</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-soft max-w-3xl leading-relaxed">
+      Sistema operacional completo para elevar show-up de 58% para 80% sem aumentar CAC — via agendamento otimizado, Diagnóstico 5D, régua multi-toque e recuperação de no-show.
+    </p>
+
+    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="card p-5">
+        <div class="text-xs text-gray-soft mb-1">Show-up atual</div>
+        <div class="text-3xl font-extrabold">58%</div>
+      </div>
+      <div class="card p-5">
+        <div class="text-xs text-gray-soft mb-1">Meta 30 dias</div>
+        <div class="text-3xl font-extrabold text-aw-blue">80%</div>
+      </div>
+      <div class="card p-5">
+        <div class="text-xs text-gray-soft mb-1">Impacto</div>
+        <div class="text-3xl font-extrabold">+36%</div>
+        <div class="text-xs text-gray-soft mt-1">reuniões realizadas</div>
+      </div>
+      <div class="card p-5">
+        <div class="text-xs text-gray-soft mb-1">CAC adicional</div>
+        <div class="text-3xl font-extrabold">R$ 0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="py-12 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="text-xs font-medium text-gray-soft tracking-widest uppercase mb-6">Estrutura do Playbook</div>
+    <div class="grid md:grid-cols-2 gap-3">
+      <a href="#p00" class="card p-4 flex items-center gap-4"><span class="font-mono text-xs text-aw-blue">00</span><span class="text-sm font-medium">Princípios operacionais</span></a>
+      <a href="#p01" class="card p-4 flex items-center gap-4"><span class="font-mono text-xs text-aw-blue">01</span><span class="text-sm font-medium">Calendário e janelas</span></a>
+      <a href="#p02" class="card p-4 flex items-center gap-4"><span class="font-mono text-xs text-aw-blue">02</span><span class="text-sm font-medium">Diagnóstico 5D</span></a>
+      <a href="#p03" class="card p-4 flex items-center gap-4"><span class="font-mono text-xs text-aw-blue">03</span><span class="text-sm font-medium">Régua por cenário</span></a>
+      <a href="#p04" class="card p-4 flex items-center gap-4"><span class="font-mono text-xs text-aw-blue">04</span><span class="text-sm font-medium">Templates "valor primeiro"</span></a>
+      <a href="#p05" class="card p-4 flex items-center gap-4"><span class="font-mono text-xs text-aw-blue">05</span><span class="text-sm font-medium">Handoff SDR → Closer</span></a>
+      <a href="#p06" class="card p-4 flex items-center gap-4"><span class="font-mono text-xs text-aw-blue">06</span><span class="text-sm font-medium">Recuperação de no-show</span></a>
+      <a href="#p07" class="card p-4 flex items-center gap-4"><span class="font-mono text-xs text-aw-blue">07</span><span class="text-sm font-medium">Governança e métricas</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 00 · PRINCÍPIOS -->
+<section id="p00" class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">00</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Princípios operacionais</div>
+        <h2 class="text-4xl font-extrabold mb-6">Quatro princípios que sustentam tudo</h2>
+        <p class="text-gray-soft text-lg leading-relaxed mb-10">
+          Antes de qualquer template ou cadência, esses quatro princípios orientam decisões. Quando houver dúvida na execução, volte aqui.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="card p-6">
+            <div class="display-num text-3xl mb-3">01</div>
+            <div class="font-semibold mb-2">Centro é o negócio do lead</div>
+            <p class="text-sm text-gray-soft">Cada mensagem, pergunta e toque parte da realidade dele, nunca da nossa. O lead se reconhece antes de comprar.</p>
+          </div>
+          <div class="card p-6">
+            <div class="display-num text-3xl mb-3">02</div>
+            <div class="font-semibold mb-2">Cada toque entrega algo útil</div>
+            <p class="text-sm text-gray-soft">Nunca um "só pra lembrar". Cada contato leva informação, prova social ou provocação útil que justifica o tempo do lead.</p>
+          </div>
+          <div class="card p-6">
+            <div class="display-num text-3xl mb-3">03</div>
+            <div class="font-semibold mb-2">Respeitar o tempo do lead</div>
+            <p class="text-sm text-gray-soft">Mensagens curtas, ligações com escopo definido, opção de responder em áudio. Quem respeita tempo ganha atenção.</p>
+          </div>
+          <div class="card p-6">
+            <div class="display-num text-3xl mb-3">04</div>
+            <div class="font-semibold mb-2">Toda mensagem termina com pergunta</div>
+            <p class="text-sm text-gray-soft">Toque que não pede resposta é toque perdido. Pergunta específica gera resposta específica — resposta abre próximo movimento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 · CALENDÁRIO -->
+<section id="p01" class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">01</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Calendário</div>
+        <h2 class="text-4xl font-extrabold mb-6">Janelas, bloqueios e capacidade</h2>
+        <p class="text-gray-soft text-lg leading-relaxed mb-10">
+          A configuração do Calendly define a qualidade da oportunidade. Janelas erradas trazem lead que não vai aparecer.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-8">
+          <div class="card p-6">
+            <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-3">Janela futura</div>
+            <div class="text-3xl font-extrabold mb-2">10 dias corridos</div>
+            <p class="text-sm text-gray-soft">Expandido de 6 para 10 dias. Resolve o gargalo de Call Agendada/SQL (era 62%, meta 75%).</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-3">Antecedência mínima</div>
+            <div class="text-3xl font-extrabold mb-2">1 hora</div>
+            <p class="text-sm text-gray-soft">Preserva o pico de intenção — lead agenda no momento de dor máxima.</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-3">Slot principal</div>
+            <div class="text-3xl font-extrabold mb-2">14h–16h30</div>
+            <p class="text-sm text-gray-soft">Melhor horário para show-up B2B segundo benchmark Gong.io (ter/qua/qui 14h30 é o pico).</p>
+          </div>
+          <div class="card p-6">
+            <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-3">Capacidade por Closer</div>
+            <div class="text-3xl font-extrabold mb-2">4 calls/dia</div>
+            <p class="text-sm text-gray-soft">Buffer obrigatório de 15min entre reuniões. Evita overflow e garante preparação.</p>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-4">Bloqueios obrigatórios no Calendly</div>
+          <div class="grid md:grid-cols-2 gap-3 text-sm">
+            <div class="flex items-start gap-2"><span class="text-aw-blue">×</span>Antes das 10h (baixo show-up B2B)</div>
+            <div class="flex items-start gap-2"><span class="text-aw-blue">×</span>Entre 12h-14h (janela de almoço)</div>
+            <div class="flex items-start gap-2"><span class="text-aw-blue">×</span>Depois das 17h30 (fim de expediente)</div>
+            <div class="flex items-start gap-2"><span class="text-aw-blue">×</span>Segunda-feira antes das 10h</div>
+            <div class="flex items-start gap-2"><span class="text-aw-blue">×</span>Sexta-feira depois das 15h</div>
+            <div class="flex items-start gap-2"><span class="text-aw-blue">×</span>Feriados e vésperas de feriado</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · DIAGNÓSTICO 5D -->
+<section id="p02" class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start mb-10">
+      <div class="section-num">02</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Diagnóstico 5D</div>
+        <h2 class="text-4xl font-extrabold mb-6">Cinco dimensões de qualificação</h2>
+        <p class="text-gray-soft text-lg leading-relaxed">
+          Framework proprietário Awsales. Cinco dimensões que SDR precisa completar antes do Closer entrar na call. Sem o 5D preenchido, o Closer entra cego.
+        </p>
+      </div>
+    </div>
+
+    <div class="card-highlight p-6 mb-10">
+      <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Princípio operacional</div>
+      <p class="text-gray-900 leading-relaxed">
+        SDR não precisa aplicar as 5 dimensões sempre na ordem rígida — a conversa é fluida. Mas <span class="font-semibold">precisa sair da ligação com TODAS as 5 respondidas e registradas no Pipedrive</span>. Se alguma ficou em branco, não é SQL — é MQL que precisa de mais um toque antes da call com o Closer.
+      </p>
+    </div>
+
+    <!-- D1 -->
+    <div class="d-card p-8 mb-4">
+      <div class="flex items-start gap-6 mb-5">
+        <div class="big-d text-6xl flex-shrink-0">D</div>
+        <div>
+          <div class="text-xs text-aw-blue font-medium tracking-widest uppercase">Dimensão 1</div>
+          <div class="text-3xl font-extrabold">Domínio</div>
+          <div class="text-gray-soft italic mt-1">tipo de negócio do lead</div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Objetivo</div>
+        <p class="text-gray-soft text-sm leading-relaxed">Entender a natureza comercial do negócio. Se é B2B ou B2C, consultivo ou transacional, canal dominante e ticket médio.</p>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Pergunta principal</div>
+        <div class="script-body p-4 rounded text-gray-900 italic">
+          "Eu vi que o seu modelo de negócio é <span class="text-aw-blue font-semibold">{{yayforms_modelo_negocio}}</span>. Me conta como funciona a máquina comercial de vocês hoje — o que vocês vendem, e como as oportunidades chegam no funil?"
+        </div>
+      </div>
+    </div>
+
+    <!-- D2 -->
+    <div class="d-card p-8 mb-4">
+      <div class="flex items-start gap-6 mb-5">
+        <div class="big-d text-6xl flex-shrink-0">D</div>
+        <div>
+          <div class="text-xs text-aw-blue font-medium tracking-widest uppercase">Dimensão 2</div>
+          <div class="text-3xl font-extrabold">Dimensionamento</div>
+          <div class="text-gray-soft italic mt-1">volume de leads/mês</div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Objetivo</div>
+        <p class="text-gray-soft text-sm leading-relaxed">Medir ordem de grandeza da operação. Volume define potencial de Revenue Leakage e se o ROI da Awsales faz sentido para o tamanho do cliente.</p>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Pergunta principal</div>
+        <div class="script-body p-4 rounded text-gray-900 italic">
+          "Em números por cima — quantas leads entram por mês no seu funil?"
+        </div>
+      </div>
+    </div>
+
+    <!-- D3 -->
+    <div class="d-card p-8 mb-4">
+      <div class="flex items-start gap-6 mb-5">
+        <div class="big-d text-6xl flex-shrink-0">D</div>
+        <div>
+          <div class="text-xs text-aw-blue font-medium tracking-widest uppercase">Dimensão 3</div>
+          <div class="text-3xl font-extrabold">Demanda</div>
+          <div class="text-gray-soft italic mt-1">o que o lead está buscando</div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Objetivo</div>
+        <p class="text-gray-soft text-sm leading-relaxed">Capturar o que o lead articula que quer (sintoma). Diferente de Dor: demanda é o desejo declarado, dor é o problema real por trás.</p>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Pergunta principal</div>
+        <div class="script-body p-4 rounded text-gray-900 italic">
+          "O que fez você buscar a Awsales nesse momento? O que está procurando resolver?"
+        </div>
+      </div>
+    </div>
+
+    <!-- D4 -->
+    <div class="d-card p-8 mb-4">
+      <div class="flex items-start gap-6 mb-5">
+        <div class="big-d text-6xl flex-shrink-0">D</div>
+        <div>
+          <div class="text-xs text-aw-blue font-medium tracking-widest uppercase">Dimensão 4</div>
+          <div class="text-3xl font-extrabold">Dor</div>
+          <div class="text-gray-soft italic mt-1">impacto no negócio</div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Objetivo</div>
+        <p class="text-gray-soft text-sm leading-relaxed">Entender a consequência real do problema no negócio do lead. A pergunta é construída em cima da resposta da D3 — nunca pergunta "qual sua dor" diretamente.</p>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Pergunta principal</div>
+        <div class="script-body p-4 rounded text-gray-900 italic">
+          "E o que isso que você está buscando está gerando de impacto no seu negócio hoje?"
+        </div>
+      </div>
+    </div>
+
+    <!-- D5 -->
+    <div class="d-card d-card-critical p-8">
+      <div class="flex items-start gap-6 mb-5">
+        <div class="big-d text-6xl flex-shrink-0">D</div>
+        <div>
+          <div class="text-xs text-aw-blue font-medium tracking-widest uppercase">Dimensão 5 · Crítica</div>
+          <div class="text-3xl font-extrabold">Decisor</div>
+          <div class="text-gray-soft italic mt-1">autoridade de decisão</div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Objetivo · a dimensão mais importante</div>
+        <p class="text-gray-soft text-sm leading-relaxed">50% das perdas atuais são por não-decisor. Esta dimensão não é opcional — precisa ser resolvida antes da reunião, ou o deal morre em "preciso alinhar com o sócio" depois da call.</p>
+      </div>
+      <div class="mb-4">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Pergunta principal</div>
+        <div class="script-body p-4 rounded text-gray-900 italic">
+          "Aqui na Awsales nós percebemos que nas reuniões, quando todos os decisores estão presentes, conseguimos encurtar o processo de decisão de 10 para 1 dia. Isso é uma forma clara de mostrar como nós nos preocupamos com o seu tempo... Por isso eu queria saber com você: além de você, existe mais alguém importante no processo de decisão da implementação de uma solução como a Awsales no seu negócio?"
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 card-highlight p-6">
+      <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Onde aplicar o 5D</div>
+      <p class="text-gray-900 leading-relaxed">
+        O 5D é aplicado em dois canais: <span class="font-semibold">ligação de qualificação</span> (aba "Script · Ligação") ou <span class="font-semibold">WhatsApp assíncrono</span> (aba "Script · WhatsApp") quando o lead não pode falar por voz. O resultado é idêntico — lead qualificado com as 5 dimensões registradas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · RÉGUA POR CENÁRIO -->
+<section id="p03" class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start mb-10">
+      <div class="section-num">03</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Régua de toques</div>
+        <h2 class="text-4xl font-extrabold mb-6">Cadência por tempo até a call</h2>
+        <p class="text-gray-soft text-lg leading-relaxed mb-6">
+          Lead que agendou para hoje recebe régua diferente de lead que agendou para daqui 5 dias. SDR nunca desiste do lead dentro da janela — cada toque ignorado ganha mais um toque de ângulo diferente.
+        </p>
+
+        <div class="flex flex-wrap gap-3 text-xs">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full" style="background: #FEF3C7; color: #92400E;"><span class="w-2 h-2 rounded-full" style="background: #D97706"></span>SDR</span>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full" style="background: #EDE9FE; color: #5B21B6;"><span class="w-2 h-2 rounded-full" style="background: #7C3AED"></span>Closer</span>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full" style="background: #DBEAFE; color: #1E40AF;"><span class="w-2 h-2 rounded-full" style="background: #1573F8"></span>Auto</span>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .cenario-card { background: white; border: 1px solid #E8E8E8; border-radius: 20px; overflow: hidden; }
+      .cenario-header { padding: 28px 32px 24px; border-bottom: 1px solid #F3F4F6; }
+      .cenario-table { width: 100%; }
+      .cenario-table th { padding: 16px 24px; font-size: 0.7rem; letter-spacing: 0.08em; color: #9CA3AF; font-weight: 600; text-transform: uppercase; text-align: left; }
+      .cenario-table td { padding: 18px 24px; border-top: 1px solid #F3F4F6; font-size: 0.9rem; color: #111827; vertical-align: middle; }
+      .cenario-table tr:hover td { background: #FAFAFA; }
+      .momento-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #1573F8; font-weight: 500; white-space: nowrap; }
+      .resp-badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; }
+      .resp-sdr { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+      .resp-closer { background: #EDE9FE; color: #5B21B6; border: 1px solid #DDD6FE; }
+      .resp-auto { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+      .acao-highlight { color: #D97706; font-weight: 500; }
+      .acao-muted { color: #6B7280; font-style: italic; }
+    </style>
+
+    <!-- CENÁRIO A -->
+    <div class="cenario-card mb-6">
+      <div class="cenario-header flex items-start justify-between flex-wrap gap-3" style="background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);">
+        <div>
+          <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: #1573F8;">Cenário A</div>
+          <div class="text-2xl font-extrabold text-gray-900">Reunião em ≤ 6 horas <span class="text-gray-soft font-normal">(same-day)</span></div>
+        </div>
+        <div class="text-xs text-gray-soft text-right">
+          <span class="font-semibold">7 toques</span><br>
+          escalada rápida · prioridade em ligação
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="cenario-table">
+          <thead>
+            <tr>
+              <th>Momento</th>
+              <th>Resp.</th>
+              <th>Condição</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="momento-tag">T+0 (10min)</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td><span class="acao-highlight">Duas ligações de qualificação 5D</span> <span class="acao-muted">(se não atender, tenta mais uma vez logo em seguida)</span> · 4 min</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T+0 (30min)</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se não atendeu nenhuma</td>
+              <td>Mensagem: <span class="acao-highlight">"prefere falar por telefone ou pelo WhatsApp?"</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T+1h30</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se sem resposta <span class="acao-muted">(1h depois da última mensagem)</span></td>
+              <td>WhatsApp com contexto Yayforms + 5D aberto <span class="acao-muted">(fallback)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−3h</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se sem resposta</td>
+              <td><span class="acao-muted">Mensagem:</span> "entendo que está corrido, mas essas perguntas são justamente para eu entender se faz sentido você investir seu tempo com a gente. Quero ter certeza que vamos gerar o valor certo para você e seu negócio."</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−1h30</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se sem resposta</td>
+              <td>Segunda tentativa de ligação · 15-20s</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−30min</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td><span class="acao-muted">Mensagem:</span> "não tem problema você não ter conseguido me responder, eu entendo a correria. Vamos manter a reunião mesmo sem ter esse contexto — alinhamos tudo na reunião!"</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−15min</td>
+              <td><span class="resp-badge resp-auto">Auto</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td>WhatsApp com link + "entrando em 15min"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CENÁRIO B1 -->
+    <div class="cenario-card mb-6" style="border-color: #1573F8; border-width: 2px;">
+      <div class="cenario-header flex items-start justify-between flex-wrap gap-3" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);">
+        <div>
+          <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: #1573F8;">Cenário B1</div>
+          <div class="text-2xl font-extrabold text-gray-900">Reunião entre 6h e 24h</div>
+        </div>
+        <div class="text-xs text-gray-soft text-right">
+          <span class="font-semibold">7 toques</span><br>
+          cadência compacta · sem toque T−24h do Closer
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="cenario-table">
+          <thead>
+            <tr>
+              <th>Momento</th>
+              <th>Resp.</th>
+              <th>Condição</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="momento-tag">T+0 (10min)</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td><span class="acao-highlight">Duas ligações de qualificação 5D</span> <span class="acao-muted">(se não atender, tenta mais uma vez logo em seguida)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T+0 (30min)</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se não atendeu nenhuma</td>
+              <td>Mensagem: <span class="acao-highlight">"prefere falar por telefone ou pelo WhatsApp?"</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T+1h30</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se sem resposta <span class="acao-muted">(1h depois da última mensagem)</span></td>
+              <td>WhatsApp personalizado + 5D aberto <span class="acao-muted">(fallback)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−4h</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se silêncio continua</td>
+              <td><span class="acao-highlight">Ligação de qualificação</span> · retomar 5D via call</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−3h</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se sem resposta</td>
+              <td><span class="acao-muted">Mensagem:</span> "entendo que está corrido, mas essas perguntas são justamente para eu entender se faz sentido você investir seu tempo com a gente. Quero ter certeza que vamos gerar o valor certo para você e seu negócio."</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−30min</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td><span class="acao-muted">Mensagem:</span> "não tem problema você não ter conseguido me responder, eu entendo a correria. Vamos manter a reunião mesmo sem ter esse contexto — alinhamos tudo na reunião!"</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−15min</td>
+              <td><span class="resp-badge resp-auto">Auto</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td>Link da sala</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CENÁRIO B2 -->
+    <div class="cenario-card mb-6" style="border-color: #1573F8; border-width: 2px;">
+      <div class="cenario-header flex items-start justify-between flex-wrap gap-3" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);">
+        <div>
+          <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: #1573F8;">Cenário B2</div>
+          <div class="text-2xl font-extrabold text-gray-900">Reunião entre 24h e 48h</div>
+        </div>
+        <div class="text-xs text-gray-soft text-right">
+          <span class="font-semibold">7 toques</span><br>
+          cadência espaçada · Closer só aparece na call
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="cenario-table">
+          <thead>
+            <tr>
+              <th>Momento</th>
+              <th>Resp.</th>
+              <th>Condição</th>
+              <th>Ação · ângulo de valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="momento-tag">T+0 (10min)</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td><span class="acao-highlight">Duas ligações de qualificação 5D</span> <span class="acao-muted">(se não atender, tenta mais uma vez logo em seguida)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T+0 (30min)</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se não atendeu nenhuma</td>
+              <td>Mensagem: <span class="acao-highlight">"prefere falar por telefone ou pelo WhatsApp?"</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T+1h30</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se sem resposta <span class="acao-muted">(1h depois da última mensagem)</span></td>
+              <td>WhatsApp personalizado + 5D aberto <span class="acao-muted">(fallback)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−12h</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se silêncio</td>
+              <td><span class="acao-highlight">Mini-case do segmento</span> + pergunta provocativa ligada à dor <span class="acao-muted">(valor, não cobrança)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−4h</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se silêncio continua</td>
+              <td><span class="acao-highlight">Ligação de qualificação</span> · retomar 5D via call</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−30min</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td><span class="acao-muted">Mensagem:</span> "não tem problema você não ter conseguido me responder, eu entendo a correria. Vamos manter a reunião mesmo sem ter esse contexto — alinhamos tudo na reunião!"</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−15min</td>
+              <td><span class="resp-badge resp-auto">Auto</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td>Link da sala</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CENÁRIO C -->
+    <div class="cenario-card">
+      <div class="cenario-header flex items-start justify-between flex-wrap gap-3" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFFFF 100%);">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <div class="text-xs font-semibold tracking-widest uppercase" style="color: #B45309;">Cenário C</div>
+            <div class="text-[10px] font-bold px-2 py-0.5 rounded-full" style="background: #D97706; color: white; letter-spacing: 0.05em;">MAIOR RISCO DE ESFRIAMENTO</div>
+          </div>
+          <div class="text-2xl font-extrabold text-gray-900">Reunião em 3+ dias</div>
+        </div>
+        <div class="text-xs text-gray-soft text-right">
+          <span class="font-semibold">9 toques</span><br>
+          cadência espaçada · Closer só aparece na call
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="cenario-table">
+          <thead>
+            <tr>
+              <th>Momento</th>
+              <th>Resp.</th>
+              <th>Condição</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="momento-tag">T+0 (10min)</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td><span class="acao-highlight">Duas ligações de qualificação 5D</span> <span class="acao-muted">(se não atender, tenta mais uma vez logo em seguida)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T+0 (30min)</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se não atendeu nenhuma</td>
+              <td>Mensagem: <span class="acao-highlight">"prefere falar por telefone ou pelo WhatsApp?"</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T+1h30</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se sem resposta <span class="acao-muted">(1h depois da última mensagem)</span></td>
+              <td>WhatsApp personalizado + 5D aberto <span class="acao-muted">(fallback)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−72h</td>
+              <td><span class="resp-badge resp-auto">Auto</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td>Track record do segmento <span class="acao-muted">(conteúdo de valor assíncrono)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−48h</td>
+              <td><span class="resp-badge resp-auto">Auto</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td>Pergunta provocativa ligada à dor <span class="acao-muted">(conteúdo assíncrono)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−24h</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se silêncio</td>
+              <td><span class="acao-highlight">Mini-case do segmento</span> + pergunta tática específica <span class="acao-muted">(valor, não cobrança)</span></td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−4h</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Se silêncio continua</td>
+              <td><span class="acao-highlight">Ligação de qualificação</span> · retomar 5D via call</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−30min</td>
+              <td><span class="resp-badge resp-sdr">SDR</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td><span class="acao-muted">Mensagem:</span> "não tem problema você não ter conseguido me responder, eu entendo a correria. Vamos manter a reunião mesmo sem ter esse contexto — alinhamos tudo na reunião!"</td>
+            </tr>
+            <tr>
+              <td class="momento-tag">T−15min</td>
+              <td><span class="resp-badge resp-auto">Auto</span></td>
+              <td class="text-gray-soft">Sempre</td>
+              <td>Link da sala</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · TEMPLATES -->
+<section id="p04" class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start mb-10">
+      <div class="section-num">04</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Biblioteca de templates</div>
+        <h2 class="text-4xl font-extrabold mb-6">Mensagens da régua</h2>
+        <p class="text-gray-soft text-lg leading-relaxed mb-6">
+          Todos os templates derivam do <span class="text-gray-900 font-semibold">Script de Ligação</span> e dos <span class="text-gray-900 font-semibold">quatro princípios operacionais</span>: centro é o negócio do lead, cada toque entrega algo útil, respeita o tempo do lead, termina com pergunta. Mesmo framing, mesma energia da ligação — independente do canal.
+        </p>
+        <p class="text-gray-soft text-sm">
+          Textos são referência — SDR adapta ao contexto específico do lead. Variáveis como <span class="font-mono text-aw-blue">{{first_name}}</span> e <span class="font-mono text-aw-blue">{{segmento}}</span> são preenchidas automaticamente pelo Pipedrive.
+        </p>
+      </div>
+    </div>
+
+    <!-- GRUPO 1 · T+0 -->
+    <div class="mb-10">
+      <div class="flex items-baseline gap-3 mb-3 pb-3 border-b border-gray-subtle">
+        <div class="font-mono text-xs text-aw-blue font-semibold tracking-widest">GRUPO 1</div>
+        <span class="text-xs text-gray-muted">·</span>
+        <h3 class="text-xl font-bold">Primeiras horas após o agendamento</h3>
+      </div>
+      <p class="text-sm text-gray-soft mb-5">Aplicado em <span class="font-semibold text-gray-900">todos os cenários (A, B1, B2, C)</span> quando o lead não atende as duas tentativas de ligação iniciais.</p>
+
+      <div class="space-y-3">
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T0_PREFERENCIA</div>
+              <div class="font-semibold mt-1">T+0 (30min) · mensagem de preferência de canal</div>
+              <div class="text-xs text-gray-soft mt-1">Após não atender as 2 ligações iniciais</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            Opa {{first_name}}, aqui é o {{sdr_name}} da Awsales.<br><br>
+            Tentei te ligar agora pra gente conversar rapidinho antes da sua reunião em <strong>{{meeting_date}}</strong>, mas não rolou — entendo a correria.<br><br>
+            Preciso de só <strong>2 minutos do seu tempo</strong> pra garantir que essa reunião é pra você e realmente vale o seu tempo. Não quero que você gaste seu tempo valioso com algo que não vá te gerar valor de verdade.<br><br>
+            <strong>Você prefere que eu te ligue em um horário melhor, ou prefere que a gente converse por aqui pelo WhatsApp mesmo?</strong> 🙌
+          </div>
+        </details>
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T0_FALLBACK_WA</div>
+              <div class="font-semibold mt-1">T+1h30 · WhatsApp fallback com 5D aberto</div>
+              <div class="text-xs text-gray-soft mt-1">1h depois da mensagem de preferência sem resposta</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}}, aqui é o {{sdr_name}} da Awsales 👋<br><br>
+            Como não consegui falar com você, vou mandar as perguntas por aqui mesmo — pra eu garantir que essa reunião é pra você e realmente vale o seu tempo.<br><br>
+            Pode responder em áudio ou texto, como for mais fácil pra você 🎙️<br><br>
+            <strong>1️⃣</strong> Eu vi que seu modelo de negócio é <strong>{{yayforms_modelo_negocio}}</strong>. Me conta como funciona a máquina comercial de vocês hoje — o que vocês vendem e como as oportunidades chegam no funil?<br><br>
+            <strong>2️⃣</strong> Em números por cima — quantas leads entram por mês no seu funil?<br><br>
+            <strong>3️⃣</strong> O que fez você buscar a Awsales nesse momento? O que está procurando resolver?<br><br>
+            <strong>4️⃣</strong> E o que isso que você está buscando está gerando de impacto no seu negócio hoje?<br><br>
+            <strong>5️⃣</strong> Aqui na Awsales a gente percebeu que quando todos os decisores estão presentes na reunião, conseguimos encurtar o processo de decisão de 10 pra 1 dia. Além de você, existe mais alguém importante no processo de decisão da implementação de uma solução como a Awsales no seu negócio?<br><br>
+            <strong>Fico no aguardo</strong> 🙌
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- GRUPO 2 · Meio da janela -->
+    <div class="mb-10">
+      <div class="flex items-baseline gap-3 mb-3 pb-3 border-b border-gray-subtle">
+        <div class="font-mono text-xs text-aw-blue font-semibold tracking-widest">GRUPO 2</div>
+        <span class="text-xs text-gray-muted">·</span>
+        <h3 class="text-xl font-bold">Meio da janela · nutrição por valor</h3>
+      </div>
+      <p class="text-sm text-gray-soft mb-5">Toques estratégicos em <span class="font-semibold text-gray-900">B2 e C</span>. Princípio 2 em ação: cada toque entrega algo útil — mini-case, track record, pergunta provocativa. Nunca é cobrança.</p>
+
+      <div class="space-y-3">
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T12H_MINICASE</div>
+              <div class="font-semibold mt-1">T−12h · mini-case + pergunta provocativa</div>
+              <div class="text-xs text-gray-soft mt-1">Se silêncio · Cenário B2 (reunião 24–48h)</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}},<br><br>
+            Enquanto a gente se prepara pra nossa call de amanhã, queria compartilhar rapidinho um caso que faz bastante sentido pro seu cenário em <strong>{{segmento}}</strong>:<br><br>
+            <em>{{mini_case_especifico}}</em> — destravamos isso em <strong>{{tempo_resultado}}</strong>, e o que mudou não foi o volume de leads, foi quanto tempo cada lead ficava parado no funil antes de virar oportunidade.<br><br>
+            Aproveitando: <strong>{{pergunta_provocativa_ligada_a_dor}}?</strong><br><br>
+            Responde quando for tranquilo pra você, em áudio ou texto 🎙️
+          </div>
+        </details>
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T72H_TRACKRECORD</div>
+              <div class="font-semibold mt-1">T−72h · track record do segmento <span class="text-gray-muted font-normal">(Auto)</span></div>
+              <div class="text-xs text-gray-soft mt-1">Sempre · Cenário C (reunião 3+ dias)</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}}, faltam 3 dias pra nossa reunião de <strong>{{meeting_date}}</strong> 🙌<br><br>
+            Enquanto isso, separei um track record de como empresas de <strong>{{segmento}}</strong> resolveram problemas parecidos usando a Awsales:<br><br>
+            📊 {{link_track_record}}<br><br>
+            <strong>Se tiver alguma coisa que já chamou sua atenção enquanto lê, me manda um sinal por aqui</strong> — a gente já foca nisso na call.
+          </div>
+        </details>
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T48H_PROVOCATIVA</div>
+              <div class="font-semibold mt-1">T−48h · pergunta provocativa ligada à dor <span class="text-gray-muted font-normal">(Auto)</span></div>
+              <div class="text-xs text-gray-soft mt-1">Sempre · Cenário C (reunião 3+ dias)</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}}, faltam 2 dias.<br><br>
+            Antes da call, uma pergunta que costuma ser reveladora pra quem está no seu momento:<br><br>
+            <strong>"Se você pudesse olhar pros próximos 90 dias e enxergar uma única mudança no seu comercial que teria o maior impacto no resultado — qual seria?"</strong><br><br>
+            Se quiser já adiantar uma resposta, fica à vontade. Caso contrário, trabalhamos isso na call 🎯
+          </div>
+        </details>
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T24H_MINICASE_C</div>
+              <div class="font-semibold mt-1">T−24h · mini-case recente + pergunta tática</div>
+              <div class="text-xs text-gray-soft mt-1">Se silêncio · Cenário C (reunião 3+ dias)</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}}, amanhã é nosso dia 👊<br><br>
+            Pra gente chegar bem preparado, olhei aqui <strong>outro caso recente</strong> em <strong>{{segmento}}</strong> que bate com o cenário que você me descreveu no formulário:<br><br>
+            <em>{{segundo_mini_case_segmento}}</em> — diferente do track record que compartilhei há uns dias, é um caso mais recente onde a situação inicial era {{situacao_similar}}.<br><br>
+            Uma pergunta que faria diferença pra eu trazer o {{closer_name}} já afiado amanhã:<br><br>
+            <strong>{{pergunta_tatica_especifica}}?</strong><br><br>
+            Pode responder em áudio, fica bem mais rápido 🎙️
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- GRUPO 3 · Pré-call -->
+    <div class="mb-10">
+      <div class="flex items-baseline gap-3 mb-3 pb-3 border-b border-gray-subtle">
+        <div class="font-mono text-xs text-aw-blue font-semibold tracking-widest">GRUPO 3</div>
+        <span class="text-xs text-gray-muted">·</span>
+        <h3 class="text-xl font-bold">Pré-call · últimas horas antes da reunião</h3>
+      </div>
+      <p class="text-sm text-gray-soft mb-5">Toques finais garantindo que o lead apareça. Tom acolhedor — mesmo quem não respondeu vale a reunião. <span class="font-semibold text-gray-900">Nunca desperdiçar uma call agendada.</span></p>
+
+      <div class="space-y-3">
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T3H_EXPLICATIVA</div>
+              <div class="font-semibold mt-1">T−3h · mensagem explicativa</div>
+              <div class="text-xs text-gray-soft mt-1">Se sem resposta · Cenários A e B1</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}}, entendo que está corrido 🙌<br><br>
+            Essas perguntas que te mandei são justamente pra eu entender se faz sentido você investir seu tempo com a gente. <strong>Quero ter certeza que vamos gerar o valor certo pra você e seu negócio.</strong><br><br>
+            <strong>Se puder me responder em áudio fica bem mais rápido</strong> — mas se não rolar, a gente resolve tudo na call mesmo 🎙️
+          </div>
+        </details>
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T30M_ACOLHEDORA</div>
+              <div class="font-semibold mt-1">T−30min · mensagem acolhedora</div>
+              <div class="text-xs text-gray-soft mt-1">Sempre · todos os cenários (A, B1, B2, C)</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}}, nossa call começa em 30min 🙌<br><br>
+            <strong>Não tem problema você não ter conseguido me responder</strong>, eu entendo a correria. Vamos manter a reunião mesmo sem ter esse contexto — alinhamos tudo na reunião!<br><br>
+            <strong>Me confirma aqui que está tudo certo pra gente se falar às {{meeting_time}}?</strong>
+          </div>
+        </details>
+
+        <details class="card p-5">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-aw-blue">SU_T15M_LINK</div>
+              <div class="font-semibold mt-1">T−15min · link da sala <span class="text-gray-muted font-normal">(Auto)</span></div>
+              <div class="text-xs text-gray-soft mt-1">Sempre · todos os cenários</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}}, nossa call começa em 15min 🎯<br><br>
+            Aqui o link da sala:<br>
+            👉 {{meeting_link}}<br><br>
+            <strong>Nos vemos por lá?</strong>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- GRUPO 4 · No-show -->
+    <div>
+      <div class="flex items-baseline gap-3 mb-3 pb-3 border-b border-gray-subtle">
+        <div class="font-mono text-xs text-red-500 font-semibold tracking-widest">GRUPO 4</div>
+        <span class="text-xs text-gray-muted">·</span>
+        <h3 class="text-xl font-bold">Recuperação de no-show</h3>
+      </div>
+      <p class="text-sm text-gray-soft mb-5">Quando o lead não aparece. Tom <span class="font-semibold text-gray-900">colaborativo, nunca acusatório</span> — lead já se sente mal, SDR assume que algo aconteceu e oferece saída fácil.</p>
+
+      <div class="space-y-3">
+
+        <details class="card p-5" style="border-color: #FCA5A5;">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-red-500">SU_NS5_LIGACAO</div>
+              <div class="font-semibold mt-1">NS+5min · ligação de recuperação</div>
+              <div class="text-xs text-gray-soft mt-1">No-show confirmado · 5min após horário da call</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            <span class="text-gray-muted italic">[Ligação · tom colaborativo, nunca acusatório]</span><br><br>
+            "Oi {{first_name}}, aqui é o {{sdr_name}} — nossa call era agora. <strong>Imagino que apareceu alguma coisa, 100% compreensível.</strong><br><br>
+            Tenho duas janelas abertas ainda esta semana: <strong>{{slot_1}}</strong> ou <strong>{{slot_2}}</strong>. <strong>Qual te atende melhor?</strong> Mantenho a janela bloqueada pro seu nome."
+          </div>
+        </details>
+
+        <details class="card p-5" style="border-color: #FCA5A5;">
+          <summary class="flex justify-between items-center">
+            <div>
+              <div class="font-mono text-xs text-red-500">SU_NS1H_REMARK</div>
+              <div class="font-semibold mt-1">NS+1h · reagendamento sem atrito</div>
+              <div class="text-xs text-gray-soft mt-1">Se não conseguiu falar na ligação NS+5min</div>
+            </div>
+            <div class="chevron text-aw-blue">▶</div>
+          </summary>
+          <div class="mt-4 script-body p-4 rounded text-gray-900 leading-relaxed">
+            {{first_name}}, sem drama com a agenda 🙌<br><br>
+            Separei 3 horários pra remarcar:<br>
+            → <strong>{{slot_1}}</strong><br>
+            → <strong>{{slot_2}}</strong><br>
+            → <strong>{{slot_3}}</strong><br><br>
+            <strong>Qual funciona pra você?</strong> Já tenho a hipótese pronta do que vale a pena a gente discutir quando encaixar.
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- Nota final -->
+    <div class="mt-12 card-highlight p-6">
+      <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Mapeamento régua × template</div>
+      <div class="text-sm text-gray-900 leading-relaxed">
+        <div class="grid md:grid-cols-2 gap-3">
+          <div><strong>Cenário A</strong> (≤6h) · SU_T0_PREFERENCIA → SU_T0_FALLBACK_WA → SU_T3H_EXPLICATIVA → SU_T30M_ACOLHEDORA → SU_T15M_LINK</div>
+          <div><strong>Cenário B1</strong> (6–24h) · SU_T0_PREFERENCIA → SU_T0_FALLBACK_WA → SU_T3H_EXPLICATIVA → SU_T30M_ACOLHEDORA → SU_T15M_LINK</div>
+          <div><strong>Cenário B2</strong> (24–48h) · SU_T0_PREFERENCIA → SU_T0_FALLBACK_WA → SU_T12H_MINICASE → SU_T30M_ACOLHEDORA → SU_T15M_LINK</div>
+          <div><strong>Cenário C</strong> (3+ dias) · SU_T0_PREFERENCIA → SU_T0_FALLBACK_WA → SU_T72H_TRACKRECORD → SU_T48H_PROVOCATIVA → SU_T24H_MINICASE_C → SU_T30M_ACOLHEDORA → SU_T15M_LINK</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · HANDOFF -->
+<section id="p05" class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start mb-10">
+      <div class="section-num">05</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Handoff SDR → Closer</div>
+        <h2 class="text-4xl font-extrabold mb-6">Como passar o lead qualificado</h2>
+        <p class="text-gray-soft text-lg leading-relaxed">
+          Depois das 5 dimensões, SDR registra dados no Pipedrive e dispara o handoff. Critério é binário: <span class="text-gray-900 font-semibold">5D completo = apto · 5D incompleto = follow-up antes da call</span>.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-4">Critério operacional</div>
+        <div class="space-y-3">
+          <div class="p-4 bg-white rounded-lg border-l-4 border-green-500">
+            <div class="font-semibold text-green-700 mb-1">5D completo</div>
+            <div class="text-sm text-gray-soft">Todas as 5 dimensões respondidas no Pipedrive. Handoff normal para Closer · toque T-24h disparado.</div>
+          </div>
+          <div class="p-4 bg-white rounded-lg border-l-4 border-yellow-500">
+            <div class="font-semibold text-yellow-700 mb-1">5D parcial</div>
+            <div class="text-sm text-gray-soft">1-2 dimensões em branco. SDR agenda follow-up WhatsApp antes da call para completar.</div>
+          </div>
+          <div class="p-4 bg-white rounded-lg border-l-4 border-red-500">
+            <div class="font-semibold text-red-700 mb-1">Decisor não confirmado</div>
+            <div class="text-sm text-gray-soft">Se outro decisor foi mencionado e não confirmou presença, SDR contratualiza trazê-lo na próxima call.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-4">Campos Pipedrive · 5D</div>
+        <div class="grid grid-cols-2 gap-2 text-xs mb-4">
+          <div class="p-2 bg-white rounded font-mono text-aw-blue">d1_dominio</div>
+          <div class="p-2 bg-white rounded font-mono text-aw-blue">d2_dimensionamento</div>
+          <div class="p-2 bg-white rounded font-mono text-aw-blue">d3_demanda</div>
+          <div class="p-2 bg-white rounded font-mono text-aw-blue">d4_dor</div>
+          <div class="p-2 bg-white rounded font-mono text-aw-blue">d5_decisor</div>
+          <div class="p-2 bg-white rounded font-mono text-aw-blue">5d_completo</div>
+        </div>
+        <p class="text-gray-soft text-xs mb-3">Os 5 primeiros guardam respostas literais do lead (texto livre). <span class="text-aw-blue font-semibold">5d_completo</span> é booleano — true quando as 5 dimensões têm resposta.</p>
+        <p class="text-gray-soft text-xs">Quando a matriz ICP estiver definida, um 7º campo <span class="font-mono text-aw-blue">icp_classe</span> (A/B/C/D/E) será calculado automaticamente e vai definir prioridade do Closer.</p>
+      </div>
+    </div>
+
+    <div class="card-highlight p-6">
+      <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-3">Handoff técnico SDR → Closer</div>
+      <p class="text-gray-900 text-sm leading-relaxed mb-3">Toda vez que o SDR fecha a qualificação (via ligação ou WhatsApp), automaticamente dispara:</p>
+      <ul class="text-sm text-gray-900 space-y-1.5">
+        <li>· Notificação Slack para o Closer com resumo dos 5D (texto literal das respostas)</li>
+        <li>· Deal atualizado no Pipedrive com os 6 campos</li>
+        <li>· Toque Closer T-24h agendado no n8n</li>
+        <li>· Se 5D incompleto · SDR recebe task de follow-up WhatsApp antes de T-24h</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · RECUPERAÇÃO NO-SHOW -->
+<section id="p06" class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start mb-10">
+      <div class="section-num">06</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Recuperação de no-show</div>
+        <h2 class="text-4xl font-extrabold mb-6">Quando o lead não aparece</h2>
+        <p class="text-gray-soft text-lg leading-relaxed">
+          Mesmo com tudo funcionando, vai ter no-show. Régua disciplinada recupera ~35% deles.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4 mb-6">
+      <div class="card p-5">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Regra 1</div>
+        <div class="font-semibold mb-2">Sem tom acusatório</div>
+        <p class="text-sm text-gray-soft">Assumir que algo aconteceu — nunca perguntar "por que você não veio". O lead já se sente mal.</p>
+      </div>
+      <div class="card p-5">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Regra 2</div>
+        <div class="font-semibold mb-2">Oferecer janelas, não pedir</div>
+        <p class="text-sm text-gray-soft">Dar 2-3 slots específicos. Deixar aberto é garantia de não remarcar.</p>
+      </div>
+      <div class="card p-5">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-2">Regra 3</div>
+        <div class="font-semibold mb-2">Máximo 2 tentativas</div>
+        <p class="text-sm text-gray-soft">NS+5min ligação + NS+1h mensagem. Depois disso, entra em nurture — não insistir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · GOVERNANÇA -->
+<section id="p07" class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start mb-10">
+      <div class="section-num">07</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Governança</div>
+        <h2 class="text-4xl font-extrabold mb-6">Métricas e rituais</h2>
+        <p class="text-gray-soft text-lg leading-relaxed">
+          Sem métrica, sem gestão. Sem ritual, a métrica vira número morto.
+        </p>
+      </div>
+    </div>
+
+    <div class="card p-6 mb-6 overflow-x-auto">
+      <table class="w-full text-left text-sm">
+        <thead class="border-b border-gray-subtle">
+          <tr>
+            <th class="py-3 px-3">Métrica</th>
+            <th class="py-3 px-3">Meta</th>
+            <th class="py-3 px-3">Alerta</th>
+            <th class="py-3 px-3">Se desviar</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-900">
+          <tr class="border-b border-gray-subtle">
+            <td class="py-3 px-3 font-semibold">Show-up global</td>
+            <td class="py-3 px-3 text-aw-blue font-semibold">≥ 80%</td>
+            <td class="py-3 px-3 text-red-600">&lt; 65%</td>
+            <td class="py-3 px-3 text-xs text-gray-soft">Revisar régua e confirmações T-4h</td>
+          </tr>
+          <tr class="border-b border-gray-subtle">
+            <td class="py-3 px-3 font-semibold">SLA execução régua</td>
+            <td class="py-3 px-3 text-aw-blue font-semibold">≥ 95%</td>
+            <td class="py-3 px-3 text-red-600">&lt; 85%</td>
+            <td class="py-3 px-3 text-xs text-gray-soft">Problema operacional · não de script</td>
+          </tr>
+          <tr class="border-b border-gray-subtle">
+            <td class="py-3 px-3 font-semibold">Qualificação 5D completa</td>
+            <td class="py-3 px-3 text-aw-blue font-semibold">≥ 90%</td>
+            <td class="py-3 px-3 text-red-600">&lt; 70%</td>
+            <td class="py-3 px-3 text-xs text-gray-soft">SDR pulando dimensões · re-treinar</td>
+          </tr>
+          <tr class="border-b border-gray-subtle">
+            <td class="py-3 px-3 font-semibold">% reuniões com decisor</td>
+            <td class="py-3 px-3 text-aw-blue font-semibold">≥ 75%</td>
+            <td class="py-3 px-3 text-red-600">&lt; 50%</td>
+            <td class="py-3 px-3 text-xs text-gray-soft">D5 não enforced</td>
+          </tr>
+          <tr class="border-b border-gray-subtle">
+            <td class="py-3 px-3 font-semibold">Response rate T+0</td>
+            <td class="py-3 px-3 text-aw-blue font-semibold">≥ 60%</td>
+            <td class="py-3 px-3 text-red-600">&lt; 40%</td>
+            <td class="py-3 px-3 text-xs text-gray-soft">Copy de template precisa de revisão</td>
+          </tr>
+          <tr class="border-b border-gray-subtle">
+            <td class="py-3 px-3 font-semibold">Response rate T-24h Closer</td>
+            <td class="py-3 px-3 text-aw-blue font-semibold">≥ 55%</td>
+            <td class="py-3 px-3 text-red-600">&lt; 35%</td>
+            <td class="py-3 px-3 text-xs text-gray-soft">Áudio genérico · personalizar mais</td>
+          </tr>
+          <tr class="border-b border-gray-subtle">
+            <td class="py-3 px-3 font-semibold">No-show recovery</td>
+            <td class="py-3 px-3 text-aw-blue font-semibold">≥ 35%</td>
+            <td class="py-3 px-3 text-red-600">&lt; 20%</td>
+            <td class="py-3 px-3 text-xs text-gray-soft">Régua de recuperação não executada</td>
+          </tr>
+          <tr>
+            <td class="py-3 px-3 font-semibold">Call Agendada/SQL</td>
+            <td class="py-3 px-3 text-aw-blue font-semibold">≥ 75%</td>
+            <td class="py-3 px-3 text-red-600">&lt; 60%</td>
+            <td class="py-3 px-3 text-xs text-gray-soft">Yayforms ou qualificação antes do agendamento</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="card p-6">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-3">Ritual diário · 15min</div>
+        <ul class="text-sm text-gray-soft space-y-1.5">
+          <li>· SDR revisa calls agendadas do dia</li>
+          <li>· Status de 5D por cada lead</li>
+          <li>· Priorização de toques pendentes</li>
+          <li>· Preparação de mensagens T-24h</li>
+        </ul>
+      </div>
+      <div class="card p-6">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-3">Ritual semanal · 45min</div>
+        <ul class="text-sm text-gray-soft space-y-1.5">
+          <li>· Revisão de show-up por dia/hora/Closer</li>
+          <li>· Análise de no-show da semana</li>
+          <li>· Feedback sobre templates com menor response</li>
+          <li>· Ajustes no Calendly e régua</li>
+        </ul>
+      </div>
+      <div class="card p-6 md:col-span-2">
+        <div class="text-xs text-aw-blue font-medium tracking-widest uppercase mb-3">Ritual mensal · 2h</div>
+        <ul class="text-sm text-gray-soft space-y-1.5">
+          <li>· Show-up por dia/hora/Closer</li>
+          <li>· Show-up por cenário (A/B/C)</li>
+          <li>· % com decisor presente</li>
+          <li>· Análise das respostas literais do 5D (padrões de dor, demanda)</li>
+          <li>· A/B de templates com menor response</li>
+          <li>· Revisar bloqueios do Calendly</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end playbook tab -->
+
+<!-- ============================================================ -->
+<!-- =================== TAB 2 · LIGAÇÃO ======================== -->
+<!-- ============================================================ -->
+<div id="ligacao" class="tab-content">
+
+<!-- HERO -->
+<section class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="flex items-center gap-2 mb-8">
+      <span class="nav-indicator"></span>
+      <span class="text-xs font-medium text-gray-soft tracking-widest uppercase">Script · Ligação de qualificação SDR</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.05]">
+      Ligação que <span class="text-aw-blue">vale o tempo do lead.</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-soft max-w-3xl leading-relaxed">
+      Script pronto para execução · do "Alô?" à venda da call. 5 momentos, ~4 minutos totais. Falas literais, transições naturais, e fechamento desenhado para gerar interesse genuíno pela call.
+    </p>
+  </div>
+</section>
+
+<!-- ESTRUTURA -->
+<section class="py-16 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-4">Os 5 momentos</div>
+    <h2 class="text-3xl font-extrabold mb-8">Estrutura completa</h2>
+
+    <div class="grid md:grid-cols-5 gap-3">
+      <div class="card p-5">
+        <div class="font-mono text-xs text-aw-blue mb-2">01 · 20s</div>
+        <div class="font-semibold text-sm">Abertura</div>
+        <div class="text-xs text-gray-soft mt-1">Framing "vale seu tempo"</div>
+      </div>
+      <div class="card p-5">
+        <div class="font-mono text-xs text-aw-blue mb-2">02 · 10s</div>
+        <div class="font-semibold text-sm">Permissão</div>
+        <div class="text-xs text-gray-soft mt-1">Direto para a D1</div>
+      </div>
+      <div class="card p-5">
+        <div class="font-mono text-xs text-aw-blue mb-2">03 · 2min</div>
+        <div class="font-semibold text-sm">Diagnóstico 5D</div>
+        <div class="text-xs text-gray-soft mt-1">5 perguntas</div>
+      </div>
+      <div class="card p-5">
+        <div class="font-mono text-xs text-aw-blue mb-2">04 · 30s</div>
+        <div class="font-semibold text-sm">Síntese-espelho</div>
+        <div class="text-xs text-gray-soft mt-1">Mostra que escutou</div>
+      </div>
+      <div class="card-highlight p-5">
+        <div class="font-mono text-xs text-aw-blue mb-2">05 · 1min</div>
+        <div class="font-semibold text-sm">Venda da call</div>
+        <div class="text-xs text-gray-soft mt-1">Hipótese + fecho</div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex items-center gap-3 text-sm text-gray-soft">
+      <span class="font-mono">Total · ~4 minutos</span>
+      <span class="text-gray-muted">·</span>
+      <span class="font-mono">Legenda:</span>
+      <span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded" style="background:#1573F8"></span>SDR</span>
+      <span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded" style="background:#9CA3AF"></span>Cliente</span>
+      <span class="inline-flex items-center gap-2"><span class="w-3 h-3 border border-dashed" style="border-color:#9CA3AF"></span>Direção</span>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTO 01 -->
+<section class="py-16 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">01</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Momento 1 · Abertura · 20s</div>
+        <h2 class="text-3xl font-extrabold mb-4">O "Alô?" e o framing que muda tudo</h2>
+        <p class="text-gray-soft leading-relaxed mb-6">
+          O lead atende esperando telemarketing ou vendedor genérico. Em 20 segundos, o SDR se identifica, desarma a defensiva e comunica o valor real dessa ligação: garantir que a reunião agendada vale o tempo dele.
+        </p>
+
+        <div class="space-y-3 mb-6">
+          <div class="fala-cliente p-4">
+            <div class="text-xs font-medium text-gray-soft tracking-widest uppercase mb-1">Cliente</div>
+            <div class="text-gray-900">"Alô?"</div>
+          </div>
+
+          <div class="fala-sdr p-4">
+            <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR</div>
+            <div class="text-gray-900 leading-relaxed">
+              "Opa, <span class="text-aw-blue font-semibold">{{first_name}}</span>? Aqui é o <span class="text-aw-blue font-semibold">{{sdr_name}}</span>, da Awsales.<br><br>
+              Vi aqui que você agendou uma reunião com a gente para <span class="text-aw-blue font-semibold">{{meeting_date}}</span>. Eu preciso de <span class="text-aw-blue font-semibold">2 minutos do seu tempo</span> pra garantir que essa reunião é <span class="text-aw-blue font-semibold">PRA VOCÊ</span> e realmente vale o seu tempo — porque não quero que você gaste seu tempo valioso com algo que não vá te gerar valor de verdade.<br><br>
+              <span class="text-aw-blue font-semibold">É impossível você falar comigo agora?</span>"
+            </div>
+          </div>
+        </div>
+
+        <!-- Bifurcação -->
+        <div class="mt-6">
+          <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Se o lead disser que não pode agora</div>
+          <div class="fala-sdr p-4 mb-3">
+            <div class="text-gray-900 leading-relaxed">
+              "Sem problema. Você prefere que <span class="text-aw-blue font-semibold">eu te envie isso pelo WhatsApp e você me responde com um áudio</span>, ou prefere que <span class="text-aw-blue font-semibold">eu te ligue em um horário melhor</span>?"
+            </div>
+          </div>
+          <div class="direcao p-4 text-sm text-gray-soft">
+            Se escolher WhatsApp → usar script da aba "Script · WhatsApp". Se escolher reagendar → oferecer 2 horários específicos ("daqui 2 horas" ou "amanhã de manhã"), nunca "me liga qualquer hora".
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTO 02 -->
+<section class="py-16 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">02</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Momento 2 · Permissão · 10s</div>
+        <h2 class="text-3xl font-extrabold mb-4">Direto ao ponto · sem rodeio</h2>
+        <p class="text-gray-soft leading-relaxed mb-6">
+          Depois que o lead confirma que pode conversar, o SDR vai direto para as perguntas. Sem explicação extra, sem justificativa sobre o Closer. O framing já foi feito no Momento 1 — agora é execução.
+        </p>
+
+        <div class="space-y-3">
+          <div class="fala-cliente p-4">
+            <div class="text-xs font-medium text-gray-soft tracking-widest uppercase mb-1">Cliente</div>
+            <div class="text-gray-900">"Pode sim, manda."</div>
+          </div>
+
+          <div class="fala-sdr p-4">
+            <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR</div>
+            <div class="text-gray-900 leading-relaxed">
+              "Show. Pra eu ter certeza que essa reunião é pra você, preciso te fazer <span class="text-aw-blue font-semibold">5 perguntas rápidinhas</span>. Pode ser?"
+            </div>
+          </div>
+
+          <div class="fala-cliente p-4">
+            <div class="text-xs font-medium text-gray-soft tracking-widest uppercase mb-1">Cliente</div>
+            <div class="text-gray-900">"Pode."</div>
+          </div>
+
+          <div class="fala-sdr p-4">
+            <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR · emenda direto na D1</div>
+            <div class="text-gray-900 leading-relaxed">
+              "Primeira..." <span class="text-gray-muted">→ segue para Momento 3 · D1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTO 03 · 5D -->
+<section class="py-16 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start mb-10">
+      <div class="section-num">03</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Momento 3 · Diagnóstico 5D · 2 minutos</div>
+        <h2 class="text-3xl font-extrabold mb-4">As 5 perguntas com transições</h2>
+        <p class="text-gray-soft leading-relaxed">
+          Cada pergunta tem a ponte que conecta com a resposta anterior. A sequência soa como conversa — não como questionário.
+        </p>
+      </div>
+    </div>
+
+    <!-- D1 -->
+    <div class="momento-card p-7 mb-5 pl-10">
+      <div class="flex items-baseline gap-3 mb-4">
+        <div class="big-d text-3xl">D1</div>
+        <div class="text-xl font-extrabold">Domínio</div>
+        <div class="text-xs text-gray-soft italic">tipo de negócio</div>
+      </div>
+
+      <div class="fala-sdr p-4 mb-3">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR</div>
+        <div class="text-gray-900 leading-relaxed">
+          "Primeira: eu vi que o seu modelo de negócio é <span class="text-aw-blue font-semibold">{{yayforms_modelo_negocio}}</span>. Me conta <span class="text-aw-blue font-semibold">como funciona a máquina comercial de vocês hoje</span> — o que vocês vendem, e como as oportunidades chegam no funil?"
+        </div>
+      </div>
+
+      <div class="direcao p-4 text-sm">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Pipedrive · d1_dominio</div>
+        <div class="text-gray-soft">Anotar segmento, modelo, ticket e ciclo nas palavras literais do lead. Quanto mais texto, melhor para o Closer espelhar depois.</div>
+      </div>
+
+      <div class="mt-3 p-3 border-l-2 border-aw-blue bg-aw-blue/5" style="background: rgba(21, 115, 248, 0.04);">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Transição para D2</div>
+        <div class="text-sm text-gray-900 italic">"Entendi. [parafrasear em 1 linha]. Isso me ajuda bastante."</div>
+      </div>
+    </div>
+
+    <!-- D2 -->
+    <div class="momento-card p-7 mb-5 pl-10">
+      <div class="flex items-baseline gap-3 mb-4">
+        <div class="big-d text-3xl">D2</div>
+        <div class="text-xl font-extrabold">Dimensionamento</div>
+        <div class="text-xs text-gray-soft italic">volume de leads</div>
+      </div>
+
+      <div class="fala-sdr p-4 mb-3">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR · ponte + pergunta</div>
+        <div class="text-gray-900 leading-relaxed">
+          "Agora em números — por cima, sem precisar puxar relatório: <span class="text-aw-blue font-semibold">quantas leads entram por mês no seu funil?</span>"
+        </div>
+      </div>
+
+      <div class="direcao p-4 text-sm">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Pipedrive · d2_dimensionamento</div>
+        <div class="text-gray-soft">Número aproximado. Se disser "muitas", pedir faixa ("1k, 5k, 10k ou 20k?"). Nunca deixar em branco.</div>
+      </div>
+
+      <div class="mt-3 p-3 border-l-2 border-aw-blue" style="background: rgba(21, 115, 248, 0.04);">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Transição para D3</div>
+        <div class="text-sm text-gray-900 italic">"Faz sentido. Com esse volume, dá para imaginar o tamanho do desafio operacional."</div>
+      </div>
+    </div>
+
+    <!-- D3 -->
+    <div class="momento-card p-7 mb-5 pl-10">
+      <div class="flex items-baseline gap-3 mb-4">
+        <div class="big-d text-3xl">D3</div>
+        <div class="text-xl font-extrabold">Demanda</div>
+        <div class="text-xs text-gray-soft italic">o que o lead está buscando</div>
+      </div>
+
+      <div class="fala-sdr p-4 mb-3">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR · ponte + pergunta</div>
+        <div class="text-gray-900 leading-relaxed">
+          "Agora a parte mais importante para o Closer chegar preparado: <span class="text-aw-blue font-semibold">o que fez você buscar a Awsales nesse momento?</span> O que está procurando resolver?"
+        </div>
+      </div>
+
+      <div class="direcao p-4 text-sm">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Pipedrive · d3_demanda</div>
+        <div class="text-gray-soft"><span class="text-aw-blue font-semibold">Texto literal</span> das palavras do lead — Closer vai espelhar no T-24h e na call. Não resumir, não parafrasear.</div>
+      </div>
+
+      <div class="mt-3 p-3 border-l-2 border-aw-blue" style="background: rgba(21, 115, 248, 0.04);">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Transição para D4</div>
+        <div class="text-sm text-gray-900 italic">"Ótimo, isso é exatamente o tipo de coisa que a gente resolve. Só me ajuda com mais uma coisa..."</div>
+      </div>
+    </div>
+
+    <!-- D4 -->
+    <div class="momento-card p-7 mb-5 pl-10">
+      <div class="flex items-baseline gap-3 mb-4">
+        <div class="big-d text-3xl">D4</div>
+        <div class="text-xl font-extrabold">Dor</div>
+        <div class="text-xs text-gray-soft italic">impacto no negócio</div>
+      </div>
+
+      <div class="fala-sdr p-4 mb-3">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR · ponte + pergunta</div>
+        <div class="text-gray-900 leading-relaxed">
+          "...me conta uma coisa: <span class="text-aw-blue font-semibold">o que isso que você está buscando está gerando de impacto no seu negócio hoje?</span>"
+        </div>
+      </div>
+
+      <div class="direcao p-4 text-sm mb-3">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Pipedrive · d4_dor</div>
+        <div class="text-gray-soft">Texto literal do impacto declarado. Silêncio depois da resposta é aliado — se o lead parar, espera 2-3 segundos antes de reagir.</div>
+      </div>
+
+      <div class="direcao p-4 text-sm mb-3">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Se o lead der resposta vaga</div>
+        <div class="text-gray-900 italic">
+          Lead: "Tá impactando bastante."<br>
+          SDR: "Imagino. Se tivesse que traduzir em um número ou área específica — onde tá doendo mais? É no <span class="text-aw-blue font-semibold">volume de vendas, na conversão, no custo da operação</span>, ou em outra frente?"
+        </div>
+      </div>
+
+      <div class="mt-3 p-3 border-l-2 border-aw-blue" style="background: rgba(21, 115, 248, 0.04);">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">Transição para D5</div>
+        <div class="text-sm text-gray-900 italic">"Entendi. Isso é um tipo de impacto que a gente já viu acontecer em vários clientes — e tem cirurgia para resolver. Última pergunta antes de eu te liberar..."</div>
+      </div>
+    </div>
+
+    <!-- D5 -->
+    <div class="momento-card p-7 pl-10" style="border-color: #1573F8;">
+      <div class="flex items-baseline gap-3 mb-4">
+        <div class="big-d text-3xl">D5</div>
+        <div class="text-xl font-extrabold">Decisor</div>
+        <div class="text-xs text-aw-blue italic font-semibold">pergunta crítica · nunca pular</div>
+      </div>
+
+      <div class="fala-sdr p-4 mb-4">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR · pergunta completa</div>
+        <div class="text-gray-900 leading-relaxed">
+          "Olha, aqui na Awsales a gente percebeu uma coisa interessante: quando <span class="text-aw-blue font-semibold">todos os decisores estão presentes na reunião</span>, conseguimos encurtar o processo de decisão de 10 para 1 dia. É uma forma clara de a gente mostrar como se preocupa com o seu tempo.<br><br>
+          Por isso eu queria saber com você: <span class="text-aw-blue font-semibold">além de você, existe mais alguém</span> importante no processo de decisão da implementação de uma solução como a Awsales no seu negócio?"
+        </div>
+      </div>
+
+      <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Bifurcação · 3 cenários possíveis</div>
+
+      <div class="space-y-3">
+        <div class="card p-4" style="border-color: #86EFAC;">
+          <div class="text-xs font-semibold text-green-700 mb-2">① Se o lead disser "sou eu que decido"</div>
+          <div class="text-sm text-gray-900 italic mb-2">"Top, isso agiliza muito. Então vamos focar em fazer a reunião valer à pena para você."</div>
+          <div class="text-xs text-gray-soft">Anotar: decisor = lead. Segue direto para Momento 4.</div>
+        </div>
+
+        <div class="card p-4" style="border-color: #FCD34D;">
+          <div class="text-xs font-semibold text-yellow-700 mb-2">② Se mencionar sócio / CEO / head e conseguir trazer</div>
+          <div class="text-sm text-gray-900 italic mb-2">"Perfeito. Faz total sentido trazer o [nome/cargo] para a call — e é exatamente por isso que falei do 10 para 1 dia. Você consegue confirmar a presença dele junto com você em <span class="text-aw-blue font-semibold">{{meeting_date}}</span>, ou faz mais sentido a gente remarcar para um horário que ele também possa?"</div>
+          <div class="text-xs text-gray-soft">Anotar: decisor_nome, decisor_cargo, decisor_confirmado.</div>
+        </div>
+
+        <div class="card p-4" style="border-color: #FCA5A5;">
+          <div class="text-xs font-semibold text-red-700 mb-2">③ Se mencionar outro decisor mas não conseguir trazer</div>
+          <div class="text-sm text-gray-900 italic mb-2">"Entendi. Olha, vou te dar uma sugestão honesta: se a gente faz a call sem ele, você vai acabar tendo que fazer uma segunda reunião para repassar tudo, e o processo trava. Prefere que a gente já combine um horário em que os dois possam? Tenho 2 ou 3 janelas que provavelmente encaixam — e garanto que isso acelera <span class="text-aw-blue font-semibold">10 para 1 dia</span> o processo."</div>
+          <div class="text-xs text-gray-soft">Se lead resistir: manter a call original + contratualizar decisor na próxima. Nunca forçar reagendamento.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTO 04 -->
+<section class="py-16 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">04</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Momento 4 · Síntese-espelho · 30s</div>
+        <h2 class="text-3xl font-extrabold mb-4">Devolver o que escutou</h2>
+        <p class="text-gray-soft leading-relaxed mb-6">
+          Antes de fechar, o SDR devolve em 2 frases o que entendeu do lead. Mostra que prestou atenção e dá chance do lead corrigir se entendeu errado.
+        </p>
+
+        <div class="fala-sdr p-4">
+          <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR</div>
+          <div class="text-gray-900 leading-relaxed">
+            "Perfeito, anotei tudo.<br><br>
+            Vocês são uma operação de <span class="text-aw-blue font-semibold">[segmento do D1]</span>, com aproximadamente <span class="text-aw-blue font-semibold">[volume do D2]</span> leads entrando por mês. A dor principal hoje é <span class="text-aw-blue font-semibold">[dor do D4]</span>, e o que te trouxe para a gente foi <span class="text-aw-blue font-semibold">[demanda do D3]</span>. Na call estarão você <span class="text-aw-blue font-semibold">[+ decisor se houver]</span>. <span class="text-aw-blue font-semibold">Fechou ou eu passei errado em algum ponto?</span>"
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTO 05 -->
+<section class="py-16 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">05</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Momento 5 · Venda da call · 1min</div>
+        <h2 class="text-3xl font-extrabold mb-4 text-aw-blue">Onde a call é vendida</h2>
+        <p class="text-gray-soft leading-relaxed mb-6">
+          Esse é o momento mais importante do script. Aqui o SDR não confirma a call — ele <span class="text-gray-900 font-semibold">vende a call</span>, traduzindo tudo que acabou de ouvir em uma hipótese específica do que o Closer vai trazer. Quando bem feito, o lead sai da ligação pensando "preciso estar nessa reunião".
+        </p>
+
+        <div class="fala-sdr p-4 mb-5">
+          <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR</div>
+          <div class="text-gray-900 leading-relaxed">
+            "Top. Agora deixa eu te adiantar por que essa call vai valer a sua hora:<br><br>
+            Com base no que você me contou, esse é um cenário que a gente já viu várias vezes. Inclusive, tem um cliente nosso de <span class="text-aw-blue font-semibold">[segmento similar]</span> que estava exatamente nesse ponto:<br><br>
+            <span class="text-aw-blue font-semibold">[mini-case específico que conecta com a dor do lead]</span>. O que o <span class="text-aw-blue font-semibold">{{closer_name}}</span> vai fazer na call é três coisas bem objetivas:<br><br>
+            <span class="text-aw-blue font-semibold">Um:</span> Mostrar para você onde exatamente — em número — está a receita que tá deixando na mesa hoje por causa dessa dor específica que você me contou.<br><br>
+            <span class="text-aw-blue font-semibold">Dois:</span> Trazer um benchmark do seu segmento — o que empresas parecidas com a sua estão fazendo para resolver isso <span class="text-aw-blue font-semibold">utilizando a Awsales</span>.<br><br>
+            <span class="text-aw-blue font-semibold">Três:</span> Te <span class="text-aw-blue font-semibold">apresentar ao vivo nossa solução</span> e o formato que faria mais sentido para o seu caso — e só se fizer sentido, a gente discute implementação.<br><br>
+            Não é apresentação de slide de produto. É trabalho em cima do seu cenário real. Faz sentido para você?"
+          </div>
+        </div>
+
+        <div class="fala-cliente p-4 mb-4">
+          <div class="text-xs font-medium text-gray-soft tracking-widest uppercase mb-1">Cliente</div>
+          <div class="text-gray-900 italic">"Faz sentido sim / perfeito / pode ser."</div>
+        </div>
+
+        <div class="fala-sdr p-4">
+          <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-1">SDR · fechamento curto</div>
+          <div class="text-gray-900 leading-relaxed">
+            "Show, então nos vemos <span class="text-aw-blue font-semibold">{{meeting_date}}</span> às <span class="text-aw-blue font-semibold">{{meeting_time}}</span>. Até lá!"
+          </div>
+        </div>
+
+        <!-- Banco de mini-cases -->
+        <div class="mt-8 card p-6">
+          <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Banco de mini-cases · SDR decora 1 por vertical</div>
+          <div class="grid md:grid-cols-2 gap-2 text-sm text-gray-soft">
+            <div class="p-3 bg-white rounded"><span class="text-aw-blue">🏠 Imobiliária:</span> "Tem uma imobiliária que atendemos que tinha [volume], perdia [X]% das leads antes do primeiro contato humano. Em 60 dias, destravamos [Y]."</div>
+            <div class="p-3 bg-white rounded"><span class="text-aw-blue">🔒 Corretor de seguros:</span> "Atendemos uma corretora que tinha [volume] e tempo médio de resposta de [X] horas. Hoje está em [Y]."</div>
+            <div class="p-3 bg-white rounded"><span class="text-aw-blue">📈 Agência de marketing:</span> "Uma agência de performance que atendemos tinha [dor]. Resolvemos com [solução Awsales]."</div>
+            <div class="p-3 bg-white rounded"><span class="text-aw-blue">🏢 Franquia/rede:</span> "Uma rede com [X] unidades unificou atendimento com a gente e padronizou SLA em 30 dias."</div>
+            <div class="p-3 bg-white rounded"><span class="text-aw-blue">🏦 Serviços financeiros:</span> "Uma fintech que atendemos perdia [X]% dos leads no gap entre cadastro e primeiro contato. Destravamos em [Y] dias."</div>
+            <div class="p-3 bg-white rounded"><span class="text-aw-blue">🎓 Educação:</span> "Uma edtech parceira do G4 tinha [dor]. Implementamos [solução] e o resultado foi [X]."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end ligacao tab -->
+
+<!-- ============================================================ -->
+<!-- =================== TAB 3 · WHATSAPP ======================= -->
+<!-- ============================================================ -->
+<div id="whatsapp" class="tab-content">
+
+<!-- HERO -->
+<section class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="flex items-center gap-2 mb-8">
+      <span class="nav-indicator"></span>
+      <span class="text-xs font-medium text-gray-soft tracking-widest uppercase">Script · Qualificação via WhatsApp</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.05]">
+      Qualificar em texto sem <span class="text-aw-blue">perder contexto humano.</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-soft max-w-3xl leading-relaxed">
+      Quando o lead prefere WhatsApp ou quando o SDR não consegue falar por voz. A lógica dos 5 momentos se mantém, adaptada para texto assíncrono.
+    </p>
+  </div>
+</section>
+
+<!-- CONTEXTO DE USO -->
+<section class="py-16 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-4">Quando usar esse script</div>
+    <h2 class="text-3xl font-extrabold mb-8">3 contextos de aplicação</h2>
+
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="card p-6">
+        <div class="display-num text-4xl mb-3">A</div>
+        <div class="font-semibold mb-2">Lead pede WhatsApp no T+0</div>
+        <p class="text-sm text-gray-soft">SDR ligou mas lead não pode falar agora. Escolheu "envia pelo WhatsApp que eu respondo com áudio". Script aplicado imediatamente.</p>
+      </div>
+      <div class="card p-6">
+        <div class="display-num text-4xl mb-3">B</div>
+        <div class="font-semibold mb-2">SDR não conseguiu falar</div>
+        <p class="text-sm text-gray-soft">Após 2 tentativas de ligação sem atendimento no T+0. Fallback assíncrono garante que 5D seja coletado dentro da janela.</p>
+      </div>
+      <div class="card p-6">
+        <div class="display-num text-4xl mb-3">C</div>
+        <div class="font-semibold mb-2">Lead silencioso no T-24h</div>
+        <p class="text-sm text-gray-soft">Cenário C · lead agendou com 3+ dias e não respondeu os toques anteriores. Último empurrão antes de entrar em régua de no-show.</p>
+      </div>
+    </div>
+
+    <div class="mt-8 card-highlight p-6">
+      <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-2">Princípio</div>
+      <p class="text-gray-900 leading-relaxed">
+        WhatsApp é assíncrono — cada mensagem precisa "segurar" o lead até a próxima. Diferente da ligação (onde a conversa flui naturalmente), em texto cada bloco precisa entregar valor e terminar com pergunta específica. Respostas em áudio são <span class="font-semibold">incentivadas</span> — preservam tom e aceleram o lead.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRUTURA -->
+<section class="py-16 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-4">Estrutura</div>
+    <h2 class="text-3xl font-extrabold mb-8">3 mensagens em sequência</h2>
+
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="card p-6">
+        <div class="font-mono text-xs text-aw-blue mb-2">M1 · Envio imediato</div>
+        <div class="font-semibold mb-2">Apresentação + 5D completo</div>
+        <p class="text-sm text-gray-soft">Framing, as 5 perguntas de qualificação em bloco único. Lead responde no ritmo dele, preferencialmente em áudio.</p>
+      </div>
+      <div class="card p-6">
+        <div class="font-mono text-xs text-aw-blue mb-2">M2 · Após respostas</div>
+        <div class="font-semibold mb-2">Síntese + venda da call</div>
+        <p class="text-sm text-gray-soft">SDR devolve o que entendeu, depois traduz em hipótese específica do que o Closer vai trazer na reunião.</p>
+      </div>
+      <div class="card-highlight p-6">
+        <div class="font-mono text-xs text-aw-blue mb-2">M3 · Confirmação</div>
+        <div class="font-semibold mb-2">Fechamento curto</div>
+        <p class="text-sm text-gray-soft">Depois do "faz sentido?" com resposta positiva, confirma dia/hora e encerra. Sai no pico, não arrastando.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENSAGEM 1 -->
+<section class="py-16 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">M1</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Mensagem 1 · Apresentação + Diagnóstico 5D</div>
+        <h2 class="text-3xl font-extrabold mb-4">Primeiro envio após lead optar por WhatsApp</h2>
+        <p class="text-gray-soft leading-relaxed mb-6">
+          Bloco único com framing, as 5 perguntas do 5D e incentivo explícito a responder em áudio. Mensagem longa, mas organizada com emojis numerados para leitura fácil no celular.
+        </p>
+
+        <!-- Preview WhatsApp -->
+        <div class="wa-container mb-6">
+          <div class="wa-bubble-out">
+            <div class="text-gray-900 text-sm leading-relaxed whitespace-pre-line">Opa {{first_name}}, aqui é o {{sdr_name}} da Awsales 👋
+
+Vi aqui que você agendou uma reunião com a gente pro dia {{meeting_date}}.
+
+Como você preferiu responder por aqui (que é ótimo, respeita seu tempo), vou te mandar 5 perguntas rápidas pra eu garantir que essa reunião é PRA VOCÊ e realmente vale o seu tempo — não quero que você gaste seu tempo valioso com algo que não vá te gerar valor de verdade.
+
+Pode responder em áudio ou texto, como for mais fácil pra você 🎙️</div>
+            <div class="wa-time text-right">14:23 ✓✓</div>
+          </div>
+
+          <div class="wa-bubble-out mt-3">
+            <div class="text-gray-900 text-sm leading-relaxed whitespace-pre-line">1️⃣ Eu vi que seu modelo de negócio é {{yayforms_modelo_negocio}}. Me conta como funciona a máquina comercial de vocês hoje — o que vocês vendem e como as oportunidades chegam no funil?
+
+2️⃣ Em números por cima — quantas leads entram por mês no seu funil?
+
+3️⃣ O que fez você buscar a Awsales nesse momento? O que está procurando resolver?
+
+4️⃣ E o que isso que você está buscando está gerando de impacto no seu negócio hoje?
+
+5️⃣ Aqui na Awsales a gente percebeu que quando todos os decisores estão presentes na reunião, conseguimos encurtar o processo de decisão de 10 pra 1 dia. Além de você, existe mais alguém importante no processo de decisão da implementação de uma solução como a Awsales no seu negócio?
+
+Fico no aguardo 🙌</div>
+            <div class="wa-time text-right">14:23 ✓✓</div>
+          </div>
+        </div>
+
+        <!-- Variações -->
+        <div class="card p-6 mb-4">
+          <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Variação · contexto B (SDR não falou antes)</div>
+          <p class="text-sm text-gray-soft mb-3">Se o lead não atendeu as 2 tentativas de ligação, ajustar o enquadramento inicial:</p>
+          <div class="script-body p-4 text-sm text-gray-900 whitespace-pre-line">Oi {{first_name}}, aqui é o {{sdr_name}} da Awsales 👋
+
+Tentei te ligar há pouco mas não rolou, tudo bem. Como você tem reunião marcada com a gente no dia {{meeting_date}}, vou te mandar 5 perguntas rápidas por aqui mesmo — pra eu garantir que essa reunião vale o seu tempo.
+
+Pode responder em áudio, fica mais rápido 🎙️
+
+[segue com as 5 perguntas numeradas]</div>
+        </div>
+
+        <div class="card p-6">
+          <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Variação · contexto C (T-24h silencioso)</div>
+          <p class="text-sm text-gray-soft mb-3">Se o lead agendou há dias e não respondeu os toques anteriores, tom ligeiramente diferente — menos formal, mais urgente:</p>
+          <div class="script-body p-4 text-sm text-gray-900 whitespace-pre-line">{{first_name}}, tudo certo por aí?
+
+A gente se fala amanhã às {{meeting_time}}, e antes disso preciso garantir que a reunião vai valer o seu tempo. São 5 perguntas rápidas — pode responder em áudio, fica bem mais rápido 🎙️
+
+[segue com as 5 perguntas numeradas]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENSAGEM 2 -->
+<section class="py-16 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">M2</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Mensagem 2 · Síntese + Venda da call</div>
+        <h2 class="text-3xl font-extrabold mb-4">Depois do lead responder o 5D</h2>
+        <p class="text-gray-soft leading-relaxed mb-6">
+          Mesma lógica dos Momentos 4 e 5 da ligação, adaptada para texto. Síntese-espelho valida que SDR entendeu, depois vende a call com as 3 promessas objetivas.
+        </p>
+
+        <!-- Preview WhatsApp -->
+        <div class="wa-container mb-6">
+          <!-- Lead response (simulated) -->
+          <div class="wa-bubble-in">
+            <div class="text-gray-900 text-sm italic leading-relaxed">[áudio de 2min do lead respondendo as 5 perguntas]</div>
+            <div class="wa-time">15:47</div>
+          </div>
+
+          <!-- SDR síntese -->
+          <div class="wa-bubble-out mt-3">
+            <div class="text-gray-900 text-sm leading-relaxed whitespace-pre-line">Perfeito {{first_name}}, anotei tudo aqui 📝
+
+Vocês são uma operação de {{segmento D1}}, com aproximadamente {{volume D2}} leads entrando por mês. A dor principal hoje é {{dor D4}}, e o que te trouxe pra gente foi {{demanda D3}}. Na call estarão você {{+ decisor se houver}}.
+
+Fechou ou eu passei errado em algum ponto?</div>
+            <div class="wa-time text-right">15:52 ✓✓</div>
+          </div>
+
+          <!-- Lead confirma (exemplo) -->
+          <div class="wa-bubble-in mt-3">
+            <div class="text-gray-900 text-sm italic leading-relaxed">"Isso mesmo, é por aí."</div>
+            <div class="wa-time">15:53</div>
+          </div>
+
+          <!-- SDR venda da call -->
+          <div class="wa-bubble-out mt-3">
+            <div class="text-gray-900 text-sm leading-relaxed whitespace-pre-line">Show. Agora deixa eu te adiantar por que essa call vai valer a sua hora:
+
+Com base no que você me contou, esse é um cenário que a gente já viu várias vezes. Inclusive, tem um cliente nosso de {{segmento similar}} que estava exatamente nesse ponto: {{mini-case específico}}.
+
+O que o {{closer_name}} vai fazer na call é 3 coisas bem objetivas:
+
+1️⃣ Mostrar pra você onde exatamente — em número — está a receita que tá deixando na mesa hoje por causa dessa dor específica que você me contou.
+
+2️⃣ Trazer um benchmark do seu segmento — o que empresas parecidas com a sua estão fazendo pra resolver isso utilizando a Awsales.
+
+3️⃣ Te apresentar ao vivo nossa solução e o formato que faria mais sentido pro seu caso — e só se fizer sentido, a gente discute implementação.
+
+Não é apresentação de slide de produto. É trabalho em cima do seu cenário real.
+
+Faz sentido pra você? 🎯</div>
+            <div class="wa-time text-right">15:53 ✓✓</div>
+          </div>
+        </div>
+
+        <div class="direcao p-4">
+          <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-2">Nota operacional</div>
+          <div class="text-sm text-gray-soft">
+            As 3 mensagens (síntese + confirmação + venda) podem ser enviadas em sequência mesmo antes do lead responder a síntese — desde que a síntese esteja correta. Se houver dúvida sobre algum dado do 5D, mandar síntese primeiro, aguardar confirmação, depois mandar a venda da call.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENSAGEM 3 -->
+<section class="py-16 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
+      <div class="section-num">M3</div>
+      <div>
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-3">Mensagem 3 · Fechamento curto</div>
+        <h2 class="text-3xl font-extrabold mb-4">Confirmação e saída</h2>
+        <p class="text-gray-soft leading-relaxed mb-6">
+          Depois do "faz sentido?" respondido com "sim", SDR confirma data/hora e encerra. Sem prolongar, sem agradecimentos longos. Mensagem curta reforça confiança e mantém o momento no pico.
+        </p>
+
+        <!-- Preview WhatsApp -->
+        <div class="wa-container mb-6">
+          <div class="wa-bubble-in">
+            <div class="text-gray-900 text-sm italic leading-relaxed">"Faz sentido sim, vamos nessa."</div>
+            <div class="wa-time">15:58</div>
+          </div>
+
+          <div class="wa-bubble-out mt-3">
+            <div class="text-gray-900 text-sm leading-relaxed whitespace-pre-line">Show! Então nos vemos {{meeting_date}} às {{meeting_time}}. Até lá! 🙌</div>
+            <div class="wa-time text-right">15:58 ✓✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIFURCAÇÕES -->
+<section class="py-16 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-4">Bifurcações mais comuns</div>
+    <h2 class="text-3xl font-extrabold mb-8">O que fazer quando o lead responde diferente</h2>
+
+    <div class="space-y-4">
+
+      <div class="card p-6">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-2">① Lead responde só parcialmente</div>
+        <p class="text-sm text-gray-soft mb-3">Lead respondeu 3 das 5 perguntas e ignorou as outras (comum com D4 ou D5). Não cobrar tudo de novo — pedir especificamente as que faltam:</p>
+        <div class="script-body p-3 text-sm text-gray-900 whitespace-pre-line">{{first_name}}, valeu pelas respostas! 🙌
+
+Só pra eu fechar o raciocínio antes da call, me ajuda com duas coisas rápidas:
+
+→ {{pergunta_X_que_faltou}}
+→ {{pergunta_Y_que_faltou}}
+
+Em áudio vai voando 🎙️</div>
+      </div>
+
+      <div class="card p-6">
+        <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-2">② Lead dá resposta vaga no D4 (impacto)</div>
+        <p class="text-sm text-gray-soft mb-3">Ex: lead disse "tá impactando bastante" sem quantificar. Pedir concretude sem pressionar:</p>
+        <div class="script-body p-3 text-sm text-gray-900 whitespace-pre-line">Imagino! Se tivesse que traduzir esse impacto em uma área específica — seria mais no volume de vendas, na conversão, no custo da operação, ou em outra frente?
+
+(Se não souber precisar agora, sem problema — o {{closer_name}} traz o cálculo na call.)</div>
+      </div>
+
+      <div class="card p-6" style="border-color: #FCA5A5;">
+        <div class="text-xs font-medium text-red-600 tracking-widest uppercase mb-2">③ Lead menciona outro decisor sem confirmar</div>
+        <p class="text-sm text-gray-soft mb-3">Lead disse "tenho sócio que também decide" mas não confirmou presença. Contratualizar via WhatsApp:</p>
+        <div class="script-body p-3 text-sm text-gray-900 whitespace-pre-line">Perfeito {{first_name}}! Então faz total sentido o {{nome_decisor}} estar na call também — é exatamente isso que encurta o processo de 10 pra 1 dia.
+
+Você consegue confirmar que ele vai estar junto com você em {{meeting_date}}?
+
+Se não rolar, prefere que eu já busque um horário em que os dois possam? Tenho 2 ou 3 opções boas pra essa semana/próxima.</div>
+      </div>
+
+      <div class="card p-6" style="border-color: #FCA5A5;">
+        <div class="text-xs font-medium text-red-600 tracking-widest uppercase mb-2">④ Lead responde "prefiro na call mesmo"</div>
+        <p class="text-sm text-gray-soft mb-3">Lead se recusa a responder o 5D por texto, quer guardar tudo pra reunião. SDR respeita mas garante o mínimo do D5:</p>
+        <div class="script-body p-3 text-sm text-gray-900 whitespace-pre-line">Show, entendo perfeitamente 🙌
+
+A única coisa que me ajuda muito saber antes é sobre os decisores: além de você, tem mais alguém que precisa estar na call pra gente decidir implementação? (Pergunto porque costumo agendar os dois juntos se for o caso — já economiza uma reunião.)</div>
+      </div>
+
+      <div class="card p-6" style="border-color: #FCA5A5;">
+        <div class="text-xs font-medium text-red-600 tracking-widest uppercase mb-2">⑤ Lead silencioso por mais de 4 horas</div>
+        <p class="text-sm text-gray-soft mb-3">Mandou M1 e não teve resposta em 4h+. Um empurrão curto e genuíno:</p>
+        <div class="script-body p-3 text-sm text-gray-900 whitespace-pre-line">{{first_name}}, sei que o dia é corrido 👊
+
+Se responder as 5 perguntas agora não dá, tudo bem — só me manda um "sim" que você segue na call {{meeting_date}} que eu já libero o horário do {{closer_name}} pra outra pessoa se for o caso.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRINCÍPIOS DO WHATSAPP -->
+<section class="py-16 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="text-xs font-medium text-aw-blue tracking-widest uppercase mb-4">Diferenças vs ligação</div>
+    <h2 class="text-3xl font-extrabold mb-8">Adaptações críticas para o meio assíncrono</h2>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="card p-6">
+        <div class="font-semibold mb-2">Emojis com propósito, não ornamento</div>
+        <p class="text-sm text-gray-soft">1️⃣ a 5️⃣ estruturam as perguntas para leitura no celular. 🎙️ sinaliza áudio. 🙌 marca cooperação. Evitar emojis dispersos ou genéricos.</p>
+      </div>
+      <div class="card p-6">
+        <div class="font-semibold mb-2">Incentivar áudio explicitamente</div>
+        <p class="text-sm text-gray-soft">"Pode responder em áudio, fica mais rápido pra você" aparece 2x. Áudio preserva tom emocional e permite 5D mais rico em 2min do que texto digitado.</p>
+      </div>
+      <div class="card p-6">
+        <div class="font-semibold mb-2">Quebrar mensagens longas em 2 balões</div>
+        <p class="text-sm text-gray-soft">M1 é dividida em 2 balões: framing + perguntas. Em WhatsApp, mensagem muito longa em balão único desestimula leitura. Quebra visual melhora resposta.</p>
+      </div>
+      <div class="card p-6">
+        <div class="font-semibold mb-2">Nunca "Está aí?" ou "Olá!"</div>
+        <p class="text-sm text-gray-soft">Mensagens vazias queimam confiança. Se for cobrar resposta, sempre acompanhar de valor novo ou pergunta específica. "Valor primeiro" vale mais aqui que na ligação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end whatsapp tab -->
+
+<!-- FOOTER -->
+<footer class="py-12 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="divider mb-8"></div>
+    <div class="flex flex-wrap justify-between items-center gap-4">
+      <div>
+        <div class="logo-text">
+          <span class="aw">Aw</span><span class="sales">sales</span>
+        </div>
+        <div class="text-xs text-gray-muted mt-1">Playbook Show-Up · Script Ligação · Script WhatsApp · v4</div>
+      </div>
+      <div class="text-sm text-gray-soft text-right">
+        Owner: Arthur · Head of Sales<br>
+        <span class="text-xs text-gray-muted">Documento operacional · imprimir ou manter aberto durante execução</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Tab switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+
+      // Remove active from all buttons and contents
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      // Add active to clicked button (all matching buttons if mobile+desktop)
+      document.querySelectorAll(`[data-tab="${targetTab}"]`).forEach(b => b.classList.add('active'));
+
+      // Show target content
+      document.getElementById(targetTab).classList.add('active');
+
+      // Scroll to top smoothly
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
