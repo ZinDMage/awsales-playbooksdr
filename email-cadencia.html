@@ -68,7 +68,7 @@
     <div class="logo-text mb-12"><span class="aw">aw</span><span class="sales">sales</span></div>
     <div class="flex items-center gap-3 mb-6">
       <span class="pill pill-neutral">Playbook</span>
-      <span class="text-gray-soft text-sm">Email Cadência · Versão 1.0</span>
+      <span class="text-gray-soft text-sm">Email Cadência · Versão 1.1 (revisão pré-apresentação)</span>
     </div>
     <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Email Cadência<br/><span class="text-aw-blue">8 fluxos. 1 padrão.</span></h1>
     <p class="text-xl text-gray-soft max-w-3xl leading-relaxed">35 emails operando do MQL ao cliente fechado. Cada fluxo tem 1 trigger Pipedrive, 1 voz, 1 CTA principal — sempre arrastando o lead pra um canal mais próximo.</p>
@@ -148,8 +148,8 @@
           <span class="text-sm text-gray-soft">CTA = WhatsApp · sem Calendly</span>
         </div>
         <div class="grid md:grid-cols-4 gap-4">
-          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_1</div><div class="font-bold mb-1">Matriz</div><div class="text-sm text-gray-soft">Form Matriz YayForms</div><div class="text-xs text-gray-muted mt-2">6 emails · D+0 a D+9</div></div>
-          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_2</div><div class="font-bold mb-1">Revenue Leakage</div><div class="text-sm text-gray-soft">Form RevLeak · 5 variantes</div><div class="text-xs text-gray-muted mt-2">6 emails · D+0 a D+9</div></div>
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_1</div><div class="font-bold mb-1">Matriz</div><div class="text-sm text-gray-soft">Form Matriz YayForms</div><div class="text-xs text-gray-muted mt-2">6 emails · D+0 a D+14</div></div>
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_2</div><div class="font-bold mb-1">Revenue Leakage</div><div class="text-sm text-gray-soft">Form RevLeak · 5 variantes</div><div class="text-xs text-gray-muted mt-2">6 emails · D+0 a D+14</div></div>
           <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_3</div><div class="font-bold mb-1">Indicação</div><div class="text-sm text-gray-soft">Form Indicação · honra referrer</div><div class="text-xs text-gray-muted mt-2">4 emails · D+0 a D+6</div></div>
           <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_4</div><div class="font-bold mb-1">Outbound Ativo</div><div class="text-sm text-gray-soft">Prospecção fria</div><div class="text-xs text-gray-muted mt-2">5 emails · D+0 a D+10</div></div>
         </div>
@@ -326,7 +326,11 @@
 
 <section class="py-20 border-t border-gray-subtle bg-gray-subtle">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold mb-8">Métricas que vamos acompanhar</h2>
+    <h2 class="text-3xl font-bold mb-4">Métricas que vamos acompanhar</h2>
+    <div class="card-amber p-6 mb-8">
+      <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:#92400E;">Atenção · alvos aspiracionais</div>
+      <p class="text-sm leading-relaxed" style="color:#78350F;">A AwSales não tinha sistema estruturado de email cadência antes deste playbook. Os alvos abaixo são <strong>hipóteses</strong> baseadas em benchmarks B2B SaaS (Outreach, Salesloft, Chili Piper, HubSpot, Lavender, Apollo). Na 1ª sprint pós-ativação vamos calibrar com dados reais — manter ou ajustar.</p>
+    </div>
     <div class="grid md:grid-cols-3 gap-6">
       <div class="card-dark p-8">
         <div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-3">Saúde do canal</div>
@@ -456,12 +460,12 @@
     <table class="spec">
       <thead><tr><th style="width:80px;">Email</th><th style="width:120px;">Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
       <tbody>
-        <tr><td class="mono">E1</td><td class="mono">D+0 (0min)</td><td><strong>{{first_name}}, vi seu cadastro</strong></td><td>Apresentação + 1 case alinhado ao cluster + zap CTA</td></tr>
-        <tr><td class="mono">E2</td><td class="mono">D+1 (1440min)</td><td><strong>3 cases no seu segmento</strong></td><td>Prova social empilhada · garantia ROI</td></tr>
-        <tr><td class="mono">E3</td><td class="mono">D+2 (2880min)</td><td><strong>{{first_name}}, vale 20 min?</strong></td><td>Convite direto · sem pressão fechamento</td></tr>
-        <tr><td class="mono">E4</td><td class="mono">D+4 (5760min)</td><td><strong>Pergunta direta sobre operação</strong></td><td>Investiga dor (5 categorias de leak)</td></tr>
-        <tr><td class="mono">E5</td><td class="mono">D+6 (8640min)</td><td><strong>É você que decide isso?</strong></td><td>Handoff pra decisor · alivia pressão</td></tr>
-        <tr><td class="mono">E6</td><td class="mono">D+9 (12960min)</td><td><strong>Fechando contato (última)</strong></td><td>Break-up educado · porta aberta</td></tr>
+        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>ROI na sua operação · garantia ou dinheiro de volta</strong></td><td>Apresentação + 1 case alinhado ao cluster + zap CTA</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>Como {{proof_case_1_cliente}} fez {{proof_case_1_roas}}</strong></td><td>Prova social empilhada · garantia ROI</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+4</td><td><strong>3 ROIs reais (sem letra miúda)</strong></td><td>3 cases · padrão replicável</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+7</td><td><strong>Quanto seu funil deixa na mesa por mês</strong></td><td>Investiga dor (5 categorias de leak)</td></tr>
+        <tr><td class="mono">E5</td><td class="mono">D+10</td><td><strong>O que eu faria com sua operação em 30 dias</strong></td><td>Plano honesto semana a semana · sem pitch</td></tr>
+        <tr><td class="mono">E6</td><td class="mono">D+14</td><td><strong>Encerrando seu cadastro aqui</strong></td><td>Break-up operacional · porta aberta</td></tr>
       </tbody>
     </table>
 
@@ -505,11 +509,11 @@
       <thead><tr><th style="width:80px;">Email</th><th style="width:120px;">Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
       <tbody>
         <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>{{first_name}}, achei onde sua operação vaza</strong></td><td>Diagnóstico imediato + case ancorado no leak_point</td></tr>
-        <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>Quem não mede, não para de perder</strong></td><td>Aprofunda dor · valor da medição</td></tr>
-        <tr><td class="mono">E3</td><td class="mono">D+2</td><td><strong>Lembra do {{leak_case_cliente}}?</strong></td><td>3 cases empilhados · padrão replicável</td></tr>
-        <tr><td class="mono">E4</td><td class="mono">D+4</td><td><strong>Posso desenhar isso pra você esta semana?</strong></td><td>Convite reunião · sem pressão</td></tr>
-        <tr><td class="mono">E5</td><td class="mono">D+6</td><td><strong>Talvez seja outra pessoa da sua equipe?</strong></td><td>Handoff p decisor · CRO/Head Comercial/RevOps</td></tr>
-        <tr><td class="mono">E6</td><td class="mono">D+9</td><td><strong>Fechando o contato (última)</strong></td><td>Break-up · porta aberta</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>{{first_name}} — {{leak_anchor_title}}</strong></td><td>Aprofunda dor · valor da medição</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+4</td><td><strong>Lembra do {{leak_case_cliente}}?</strong></td><td>3 cases empilhados · padrão replicável</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+7</td><td><strong>Posso desenhar isso pra você esta semana?</strong></td><td>Convite reunião · sem pressão</td></tr>
+        <tr><td class="mono">E5</td><td class="mono">D+10</td><td><strong>Talvez seja outra pessoa da sua equipe?</strong></td><td>Handoff p decisor · CRO/Head Comercial/RevOps</td></tr>
+        <tr><td class="mono">E6</td><td class="mono">D+14</td><td><strong>Último contato sobre a sua operação</strong></td><td>Break-up operacional · porta aberta</td></tr>
       </tbody>
     </table>
 
@@ -540,7 +544,7 @@
         <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>{{referrer_name}} te indicou pra mim</strong></td><td>Abertura citando referrer · sem pitch</td></tr>
         <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>O que rodamos pra outros indicados</strong></td><td>3 cases · padrão replicável</td></tr>
         <tr><td class="mono">E3</td><td class="mono">D+3</td><td><strong>Vale 20 min?</strong></td><td>Convite direto · honra referrer</td></tr>
-        <tr><td class="mono">E4</td><td class="mono">D+6</td><td><strong>Fechando aqui</strong></td><td>Break-up · "não vou contar pro indicador"</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+6</td><td><strong>Encerrando o contato da indicação</strong></td><td>Break-up operacional · "não vou contar pro indicador"</td></tr>
       </tbody>
     </table>
   </div>
@@ -566,8 +570,8 @@
         <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>Observação rápida sobre sua operação</strong></td><td>Cold opener consultivo · 5 categorias de leak</td></tr>
         <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>Caso que pode espelhar a sua operação</strong></td><td>Case anchor</td></tr>
         <tr><td class="mono">E3</td><td class="mono">D+3</td><td><strong>Dúvida direta</strong></td><td>1 pergunta yes/no · resposta no zap</td></tr>
-        <tr><td class="mono">E4</td><td class="mono">D+6</td><td><strong>Pode ser que eu esteja olhando errado</strong></td><td>Reset · convida correção</td></tr>
-        <tr><td class="mono">E5</td><td class="mono">D+10</td><td><strong>Vou parar de te incomodar</strong></td><td>Break-up</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+6</td><td><strong>Posso estar olhando o problema errado?</strong></td><td>Reset · convida correção</td></tr>
+        <tr><td class="mono">E5</td><td class="mono">D+10</td><td><strong>Encerrando o contato pelo email</strong></td><td>Break-up operacional</td></tr>
       </tbody>
     </table>
   </div>
@@ -585,18 +589,23 @@
     <div class="grid md:grid-cols-2 gap-6 mb-8">
       <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="text-sm">cf_data_reuniao transicionou vazio → preenchido</div></div>
       <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Anchor</div><div class="text-sm">E1 trigger_at · E2/E3 meeting_at (offset negativo)</div></div>
-      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">CTAs</div><div class="text-sm">Calendly (remanejar) + briefing + WhatsApp</div></div>
-      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Slots especiais</div><div class="font-mono text-sm">{{meeting_date_pretty}} · {{meeting_time}}</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">CTAs</div><div class="text-sm">Calendly do funil (CF Agendamento do n8n) + WhatsApp</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Slots especiais</div><div class="font-mono text-sm">{{meeting_date_pretty}} · {{meeting_time}} · {{calendar_url}}</div></div>
     </div>
 
     <table class="spec">
       <thead><tr><th>Email</th><th>Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
       <tbody>
-        <tr><td class="mono">E1</td><td class="mono">trigger_at +0</td><td><strong>Confirmado pra {{meeting_date_pretty}}</strong></td><td>Confirma + envia briefing (4 perguntas)</td></tr>
-        <tr><td class="mono">E2</td><td class="mono">meeting_at −24h</td><td><strong>Amanhã às {{meeting_time}}</strong></td><td>Véspera · o que sai da call · reforça briefing</td></tr>
+        <tr><td class="mono">E1</td><td class="mono">trigger_at +0</td><td><strong>Confirmado pra {{meeting_date_pretty}}</strong></td><td>Confirma + o que vamos resolver na call + canal zap</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">meeting_at −24h</td><td><strong>Amanhã às {{meeting_time}}</strong></td><td>Véspera · o que sai da call · prep contexto</td></tr>
         <tr><td class="mono">E3</td><td class="mono">meeting_at −2h</td><td><strong>Te vejo daqui 2h</strong></td><td>Micro-lembrete · prep técnica · reagendar último-min</td></tr>
       </tbody>
     </table>
+
+    <div class="card-highlight p-6 mt-6">
+      <div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-2">Integração n8n</div>
+      <p class="text-sm">Quando lead marca Calendly, o workflow <code class="font-mono">Calendly → Pipedrive</code> popula 2 CFs do deal automaticamente: <strong>Agendamento</strong> (link do seller que vai atender) e <strong>Reagendamento</strong> (reschedule_url específico do invitee). Seq 5 lê o CF e injeta no email — lead recebe sempre o link Calendly correto.</p>
+    </div>
   </div>
 </section>
 </div><!-- /seq5 -->
@@ -617,9 +626,9 @@
     <table class="spec">
       <thead><tr><th>Email</th><th>Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
       <tbody>
-        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>{{first_name}}, te perdi hoje</strong></td><td>Confirma no-show educadamente · agenda aberta</td></tr>
+        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>Reunião não aconteceu · vamos reagendar?</strong></td><td>Confirma no-show educadamente · agenda aberta</td></tr>
         <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>Ainda dá tempo essa semana</strong></td><td>Lembrete suave · valor + garantia</td></tr>
-        <tr><td class="mono">E3</td><td class="mono">D+3</td><td><strong>Fechando a janela</strong></td><td>Break-up · porta aberta</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+3</td><td><strong>Última oportunidade de reagendar esta semana</strong></td><td>Break-up operacional · porta aberta</td></tr>
       </tbody>
     </table>
   </div>
@@ -645,7 +654,7 @@
         <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>Proposta no seu colo</strong></td><td>Confirma envio · abre canal de dúvida</td></tr>
         <tr><td class="mono">E2</td><td class="mono">D+2</td><td><strong>Perguntas comuns que recebo</strong></td><td>Antecipa 3 objeções (preço/garantia/time)</td></tr>
         <tr><td class="mono">E3</td><td class="mono">D+5</td><td><strong>Vamos fechar 1 ponto pendente?</strong></td><td>Convite p decisão · "manda no zap o que falta"</td></tr>
-        <tr><td class="mono">E4</td><td class="mono">D+10</td><td><strong>Encerrando esse processo</strong></td><td>Break-up · proposta segue aberta</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+10</td><td><strong>Encerrando o follow-up da proposta</strong></td><td>Break-up operacional · proposta segue aberta</td></tr>
       </tbody>
     </table>
   </div>
@@ -741,6 +750,26 @@
       </tbody>
     </table>
 
+    <h3 class="text-2xl font-bold mb-6 mt-16">Calendly · vem dos CFs do funil (n8n)</h3>
+    <p class="text-sm text-gray-soft mb-6">Diferente do WhatsApp (mapping hardcoded), o link Calendly é resolvido em <strong>runtime via custom fields do deal</strong>. Quando lead marca/cancela Calendly, o workflow n8n popula os 2 CFs abaixo. O hook lê e injeta no email — lead recebe sempre o link correto do seller que vai atender ele.</p>
+
+    <table class="spec">
+      <thead><tr><th>CF Pipedrive</th><th>Nome</th><th>Origem</th><th>Usado em</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">fce409b3...</td><td><strong>Agendamento</strong></td><td>n8n · seller mapping (arthur, guilherme, fallback)</td><td>Seq 5 · link da reunião marcada</td></tr>
+        <tr><td class="mono">7333351b...</td><td><strong>Reagendamento</strong></td><td>n8n · reschedule_url do Calendly por invitee</td><td>Seq 6 · reagendar pós-no-show</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card p-6 mt-4">
+      <div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Mapping atual de sellers no n8n (define_seller_link)</div>
+      <ul class="text-sm space-y-1 mt-2">
+        <li><span class="font-mono text-aw-blue">arthur@awsales.io</span> → calendly.com/arthur-awsales/apresentacao-awsales</li>
+        <li><span class="font-mono text-aw-blue">guilherme.souza@awsales.io</span> → calendly.com/guilherme-souza-awsales/apresentacao-awsales</li>
+        <li><span class="font-mono text-gray-soft">fallback</span> → calendly.com/d/cm99-5zw-gp6/apresentacao-awsales</li>
+      </ul>
+    </div>
+
     <div class="card-dark p-8 mt-16">
       <div class="text-sm font-semibold text-aw-blue mb-3">ROADMAP · A/B SDR ↔ IA AwSales</div>
       <h3 class="text-2xl font-bold mb-4">Arquitetura já preparada</h3>
@@ -761,7 +790,7 @@
 <footer class="py-12 border-t border-gray-subtle">
   <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-sm text-gray-muted">
     <div class="logo-text"><span class="aw">aw</span><span class="sales">sales</span></div>
-    <div>Playbook v1.0 · 2026-05-28</div>
+    <div>Playbook v1.1 · 2026-05-28 · revisão pré-apresentação</div>
   </div>
 </footer>
 
