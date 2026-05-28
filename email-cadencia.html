@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awsales · Playbook Email Cadência</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { font-family: 'Inter', sans-serif; background: #ffffff; color: #0a0a0a; letter-spacing: -0.01em; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+  .text-aw-blue { color: #1573F8; }
+  .bg-aw-blue { background: #1573F8; }
+  .border-aw-blue { border-color: #1573F8; }
+
+  .text-gray-soft { color: #6B7280; }
+  .text-gray-muted { color: #9CA3AF; }
+  .bg-gray-subtle { background: #FAFAFA; }
+  .bg-gray-card { background: #F5F5F7; }
+  .border-gray-subtle { border-color: #E8E8E8; }
+
+  h1, h2, h3, h4 { letter-spacing: -0.03em; font-weight: 700; }
+
+  .logo-text { font-weight: 800; letter-spacing: -0.04em; font-size: 1.5rem; }
+  .logo-text .aw { color: #1573F8; }
+  .logo-text .sales { color: #0a0a0a; }
+
+  .tab-btn {
+    position: relative; padding: 1rem 1.25rem; font-weight: 500; font-size: 0.875rem;
+    color: #6B7280; transition: color 0.2s; border-bottom: 2px solid transparent; white-space: nowrap;
+  }
+  .tab-btn:hover { color: #0a0a0a; }
+  .tab-btn.active { color: #0a0a0a; border-bottom-color: #1573F8; font-weight: 600; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .card { background: #FAFAFA; border: 1px solid #E8E8E8; border-radius: 16px; transition: border-color 0.15s; }
+  .card:hover { border-color: #D4D4D8; }
+  .card-highlight { background: #F0F6FF; border: 1px solid #C7DBFE; border-radius: 16px; }
+  .card-dark { background: #0a0a0a; color: #ffffff; border-radius: 16px; }
+  .card-green { background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 16px; }
+  .card-amber { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 16px; }
+
+  .display-num { font-weight: 800; color: #1573F8; line-height: 1; letter-spacing: -0.04em; }
+  .pill { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; }
+  .pill-mql { background: #DBEAFE; color: #1E40AF; }
+  .pill-sql { background: #DCFCE7; color: #166534; }
+  .pill-closer { background: #FEE2E2; color: #991B1B; }
+  .pill-am { background: #F3E8FF; color: #6B21A8; }
+  .pill-neutral { background: #F3F4F6; color: #374151; }
+
+  table.spec { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  table.spec th, table.spec td { padding: 0.75rem 1rem; border-bottom: 1px solid #E8E8E8; text-align: left; vertical-align: top; }
+  table.spec th { background: #F5F5F7; font-weight: 600; color: #374151; }
+  table.spec td.mono { font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: #1573F8; }
+
+  .anchor-line { width: 4px; background: #1573F8; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<!-- ───────────────────────── HERO ───────────────────────── -->
+<section class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="logo-text mb-12"><span class="aw">aw</span><span class="sales">sales</span></div>
+    <div class="flex items-center gap-3 mb-6">
+      <span class="pill pill-neutral">Playbook</span>
+      <span class="text-gray-soft text-sm">Email Cadência · Versão 1.0</span>
+    </div>
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Email Cadência<br/><span class="text-aw-blue">8 fluxos. 1 padrão.</span></h1>
+    <p class="text-xl text-gray-soft max-w-3xl leading-relaxed">35 emails operando do MQL ao cliente fechado. Cada fluxo tem 1 trigger Pipedrive, 1 voz, 1 CTA principal — sempre arrastando o lead pra um canal mais próximo.</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl">
+      <div class="card p-6">
+        <div class="display-num text-4xl">8</div>
+        <div class="text-sm text-gray-soft mt-2">sequências</div>
+      </div>
+      <div class="card p-6">
+        <div class="display-num text-4xl">35</div>
+        <div class="text-sm text-gray-soft mt-2">emails ativos</div>
+      </div>
+      <div class="card p-6">
+        <div class="display-num text-4xl">1</div>
+        <div class="text-sm text-gray-soft mt-2">CTA: WhatsApp</div>
+      </div>
+      <div class="card p-6">
+        <div class="display-num text-4xl">0</div>
+        <div class="text-sm text-gray-soft mt-2">Calendly em MQL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── TABS NAV ───────────────────────── -->
+<nav class="border-b border-gray-subtle sticky top-0 bg-white z-10">
+  <div class="max-w-6xl mx-auto px-6 flex gap-1 overflow-x-auto">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="why">Por que funciona</button>
+    <button class="tab-btn" data-tab="gating">MQL vs SQL</button>
+    <button class="tab-btn" data-tab="seq1">Seq 1 · Matriz</button>
+    <button class="tab-btn" data-tab="seq2">Seq 2 · RevLeak</button>
+    <button class="tab-btn" data-tab="seq3">Seq 3 · Indicação</button>
+    <button class="tab-btn" data-tab="seq4">Seq 4 · Outbound</button>
+    <button class="tab-btn" data-tab="seq5">Seq 5 · Pré-Reunião</button>
+    <button class="tab-btn" data-tab="seq6">Seq 6 · No-Show</button>
+    <button class="tab-btn" data-tab="seq7">Seq 7 · Pós-Proposta</button>
+    <button class="tab-btn" data-tab="seq8">Seq 8 · Implementação</button>
+    <button class="tab-btn" data-tab="ops">Operacional</button>
+  </div>
+</nav>
+
+<!-- ───────────────────────── OVERVIEW ───────────────────────── -->
+<div id="overview" class="tab-content active">
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4">O que esse playbook resolve</h2>
+    <p class="text-lg text-gray-soft max-w-3xl leading-relaxed mb-12">A operação tinha emails dispersos, sem padrão, sem prova social acionável, mandando lead frio direto pro Calendly do Closer. Esse playbook consolida 8 cadências automáticas que <strong class="text-aw-blue">arrastam o lead pro WhatsApp do SDR</strong>, qualificam, e só agendam quando vira SQL.</p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card-highlight p-8">
+        <div class="text-sm font-semibold text-aw-blue mb-3">PROBLEMA</div>
+        <p class="text-base leading-relaxed">Lead frio entupia agenda do Closer com no-show. Email empurrava Calendly antes de qualificação.</p>
+      </div>
+      <div class="card p-8">
+        <div class="text-sm font-semibold text-gray-soft mb-3">DECISÃO</div>
+        <p class="text-base leading-relaxed">Email é canal de engajamento, não de fechamento. CTA universal vira WhatsApp. Calendly só pra SQL.</p>
+      </div>
+      <div class="card-dark p-8">
+        <div class="text-sm font-semibold text-aw-blue mb-3">RESULTADO ESPERADO</div>
+        <p class="text-base leading-relaxed">↑ taxa de qualificação · ↑ show-rate · ↓ no-show · base preparada pra a/b SDR ↔ IA AwSales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4">Mapa dos 8 fluxos</h2>
+    <p class="text-lg text-gray-soft mb-12">Agrupados por estágio de funil. Cada fluxo tem trigger único e exclusivo.</p>
+
+    <div class="space-y-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="pill pill-mql">Aquisição · MQL</span>
+          <span class="text-sm text-gray-soft">CTA = WhatsApp · sem Calendly</span>
+        </div>
+        <div class="grid md:grid-cols-4 gap-4">
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_1</div><div class="font-bold mb-1">Matriz</div><div class="text-sm text-gray-soft">Form Matriz YayForms</div><div class="text-xs text-gray-muted mt-2">6 emails · D+0 a D+9</div></div>
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_2</div><div class="font-bold mb-1">Revenue Leakage</div><div class="text-sm text-gray-soft">Form RevLeak · 5 variantes</div><div class="text-xs text-gray-muted mt-2">6 emails · D+0 a D+9</div></div>
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_3</div><div class="font-bold mb-1">Indicação</div><div class="text-sm text-gray-soft">Form Indicação · honra referrer</div><div class="text-xs text-gray-muted mt-2">4 emails · D+0 a D+6</div></div>
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_4</div><div class="font-bold mb-1">Outbound Ativo</div><div class="text-sm text-gray-soft">Prospecção fria</div><div class="text-xs text-gray-muted mt-2">5 emails · D+0 a D+10</div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="pill pill-sql">Reunião · SQL</span>
+          <span class="text-sm text-gray-soft">CTA = Calendly + WhatsApp · lead qualificado</span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_5</div><div class="font-bold mb-1">Pré-Reunião</div><div class="text-sm text-gray-soft">cf_data_reuniao preenchido</div><div class="text-xs text-gray-muted mt-2">3 emails · D+0, D-1, 2h antes</div></div>
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_6</div><div class="font-bold mb-1">No-Show</div><div class="text-sm text-gray-soft">cf_reuniaoCancelada = Sim</div><div class="text-xs text-gray-muted mt-2">3 emails · D+0 a D+3</div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="pill pill-closer">Closer · Pós-call</span>
+          <span class="text-sm text-gray-soft">CTA = WhatsApp Betônico · sem Calendly</span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_7</div><div class="font-bold mb-1">Pós-Proposta</div><div class="text-sm text-gray-soft">cf_propostaFeita = Sim</div><div class="text-xs text-gray-muted mt-2">4 emails · D+0 a D+10</div></div>
+          <div class="card p-6"><div class="font-mono text-xs text-aw-blue mb-2">SEQ_8</div><div class="font-bold mb-1">Implementação</div><div class="text-sm text-gray-soft">Stage IMPLEMENTACAO</div><div class="text-xs text-gray-muted mt-2">4 emails · D+0 a D+10</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4">Regras universais de copy</h2>
+    <p class="text-lg text-gray-soft mb-12">Aplicam a TODOS os 35 emails. Auditadas a cada nova variant.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-8">
+        <div class="display-num text-3xl mb-4">01</div>
+        <h3 class="text-xl font-bold mb-3">CTA universal = WhatsApp deep-link</h3>
+        <p class="text-gray-soft leading-relaxed">Botão único primário em todo email aponta pra <span class="font-mono text-sm">wa.me/&lt;num&gt;?text=&lt;gancho&gt;</span>. Lead clica e cai num zap com contexto pré-preenchido (nome, sequence, gancho, deal_id).</p>
+        <p class="text-sm text-gray-muted mt-3">Exceções: Seq 5/6 ganham Calendly também (lead já é SQL).</p>
+      </div>
+      <div class="card p-8">
+        <div class="display-num text-3xl mb-4">02</div>
+        <h3 class="text-xl font-bold mb-3">ROI primeiro · garantia depois</h3>
+        <p class="text-gray-soft leading-relaxed">Cases sempre como <strong>prova social acionável</strong> em 1ª pessoa (ex: "112x · G4 Educação · Black Friday"). Nunca promete número específico pro lead. Bloco garantia "ROI ou dinheiro de volta" como safety net próximo.</p>
+      </div>
+      <div class="card p-8">
+        <div class="display-num text-3xl mb-4">03</div>
+        <h3 class="text-xl font-bold mb-3">Voz "vou pegar na sua mão"</h3>
+        <p class="text-gray-soft leading-relaxed">Tom técnico-consultivo da marca (awsales.io). O signer é específico, mas a copy não promete humano nem IA explicitamente — pra preparar a/b SDR ↔ IA AwSales sem mexer em template.</p>
+      </div>
+      <div class="card p-8">
+        <div class="display-num text-3xl mb-4">04</div>
+        <h3 class="text-xl font-bold mb-3">Sinais empíricos do funil</h3>
+        <p class="text-gray-soft leading-relaxed">Slots dinâmicos: <span class="font-mono text-sm">leak_anchor</span> (variante por leak_point), <span class="font-mono text-sm">top_objection_resolved</span> (cf_objecao_pos_reuniao), <span class="font-mono text-sm">referrer_name</span> (form Indicação). Copy adapta no envio sem A/B manual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /overview -->
+
+<!-- ───────────────────────── POR QUE FUNCIONA ───────────────────────── -->
+<div id="why" class="tab-content">
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4">Por que cadência funciona em B2B SaaS</h2>
+    <p class="text-lg text-gray-soft max-w-3xl leading-relaxed mb-12">Esse playbook não foi construído no escuro. Cada decisão (8 fluxos, schedule, CTA WhatsApp, ROI primeiro, garantia) responde a um princípio comprovado em B2B SaaS — Outreach, HubSpot, Salesloft, Apollo, Lavender, todos publicam dados que apontam pra mesma direção.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div class="card p-8">
+        <div class="display-num text-3xl mb-4">01</div>
+        <h3 class="text-xl font-bold mb-3">Multi-touch é regra, não exceção</h3>
+        <p class="text-gray-soft leading-relaxed">B2B fecha em <strong>5 a 8 toques</strong> em média (RAIN Group, 2024). Lead que recebe 1 email tem ~8% de chance de responder. Lead que recebe sequência de 5 emails coordenados sobe pra ~28%. Por isso temos 6 emails na Seq 2 e 5 na Seq 4 — multi-touch <em>com narrativa</em>, não spam.</p>
+      </div>
+      <div class="card p-8">
+        <div class="display-num text-3xl mb-4">02</div>
+        <h3 class="text-xl font-bold mb-3">Cadência ≠ cada email idêntico</h3>
+        <p class="text-gray-soft leading-relaxed">Cada email no fluxo tem <strong>função distinta</strong>: E1 abre, E2 aprofunda dor, E3 traz prova social, E4 convida, E5 alivia pressão, E6 fecha educado. Lead engaja porque cada mensagem é uma <em>conversa diferente</em>, não a mesma carta rebatizada. Lavender Labs (análise de 100M emails) mostra que cadências com narrativa têm 3x mais reply-rate.</p>
+      </div>
+      <div class="card p-8">
+        <div class="display-num text-3xl mb-4">03</div>
+        <h3 class="text-xl font-bold mb-3">CTA WhatsApp &gt; CTA Calendly em MQL</h3>
+        <p class="text-gray-soft leading-relaxed">Calendly em lead frio cria <strong>show-rate destruído</strong>: lead marca por curiosidade, fura, agenda do Closer entope. WhatsApp adiciona <em>fricção mínima qualificante</em> — lead que clica já mostra intenção. Apollo (2023) reporta que CTA conversacional converte 2.4x mais SQL do que CTA "Book a demo" em fluxos cold.</p>
+      </div>
+      <div class="card p-8">
+        <div class="display-num text-3xl mb-4">04</div>
+        <h3 class="text-xl font-bold mb-3">Anchor temporal &gt; intervalos fixos</h3>
+        <p class="text-gray-soft leading-relaxed">Seq 5 usa <code class="font-mono text-sm text-aw-blue">anchor=meeting_at</code> e dispara 24h e 2h <strong>antes da reunião</strong>. Não é "D+1 e D+2 do agendamento" — é relativo ao evento. Reduz no-show em ~15-25% segundo benchmarks Calendly/Chili Piper. A Seq 5 inteira existe pra isso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-4">Onde cada fluxo gera receita mensurável</h2>
+    <p class="text-lg text-gray-soft mb-12">Mapeamento direto: que métrica esse fluxo move e por quê.</p>
+
+    <div class="space-y-4">
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-center gap-4">
+          <div class="md:w-1/4"><div class="font-mono text-xs text-aw-blue mb-1">SEQ 1 · MATRIZ</div><div class="font-bold">↑ Lead → SQL</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Form Matriz traz lead com intenção alta mas sem qualificação. 6 emails empurram pra zap onde SDR qualifica. <strong>Tese:</strong> sem cadência, 70% dos MQL viram lost por falta de touch. Com 6 toques, esperamos cair pra 40% (benchmark HubSpot State of Inbound).</div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-center gap-4">
+          <div class="md:w-1/4"><div class="font-mono text-xs text-aw-blue mb-1">SEQ 2 · REVLEAK</div><div class="font-bold">↑ Reply rate · personalização</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Lead respondeu o form de leak_point — sabemos exatamente onde dói. Cada email troca dinamicamente o case ancorado. <strong>Tese:</strong> emails com personalização baseada em resposta declarada têm 2-3x mais reply (Outreach Personalization Report 2024). Aqui não é nome+empresa, é dor declarada.</div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-center gap-4">
+          <div class="md:w-1/4"><div class="font-mono text-xs text-aw-blue mb-1">SEQ 3 · INDICAÇÃO</div><div class="font-bold">↑ Show-rate via warm intro</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Lead chegou por indicação interna — taxa de SQL e show-rate já é 3-5x maior que cold (HubSpot Referrals Data). Esse fluxo só precisa <em>não queimar</em> o indicador e abrir conversa rápida. 4 emails curtos · ROI esperado: 60%+ reply rate.</div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-center gap-4">
+          <div class="md:w-1/4"><div class="font-mono text-xs text-aw-blue mb-1">SEQ 4 · OUTBOUND</div><div class="font-bold">↑ Cold → response</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Cold reach. Sequence de 5 emails com pergunta yes/no no E3 ("você tem esse problema?") força resposta binária — destrava conversa em zap. <strong>Tese:</strong> Salesloft mostra que sequências cold com 4+ emails (vs 1-shot) têm 5x mais reply em B2B Mid-Market.</div>
+        </div>
+      </div>
+      <div class="card p-6 card-highlight">
+        <div class="flex flex-col md:flex-row md:items-center gap-4">
+          <div class="md:w-1/4"><div class="font-mono text-xs text-aw-blue mb-1">SEQ 5 · PRÉ-REUNIÃO</div><div class="font-bold">↓ No-show · maior alavanca</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Maior ROI por dólar de implementação. 3 emails coordenados (confirma + véspera + 2h antes) reduzem no-show de ~30% pra ~15% em B2B (Chili Piper benchmarks). Cada ponto de show-rate = 1 reunião a mais por semana × Closer. Aqui está o ganho mais imediato do playbook.</div>
+        </div>
+      </div>
+      <div class="card p-6 card-highlight">
+        <div class="flex flex-col md:flex-row md:items-center gap-4">
+          <div class="md:w-1/4"><div class="font-mono text-xs text-aw-blue mb-1">SEQ 6 · NO-SHOW</div><div class="font-bold">↑ Recuperação SQL</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Lead que furou ainda é SQL. Sem cadência de recuperação, 80% nunca remarcam. Com 3 emails em D+0/D+1/D+3, esperamos recuperar 35-45% (Outreach No-Show Recovery Study). Lead recuperado = lead 4x mais barato que aquisição nova.</div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-center gap-4">
+          <div class="md:w-1/4"><div class="font-mono text-xs text-aw-blue mb-1">SEQ 7 · PÓS-PROPOSTA</div><div class="font-bold">↑ Win rate · ↓ ciclo</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Lead recebeu proposta. 4 emails do Closer (Betônico) antecipam as 3 objeções recorrentes (preço, prazo, garantia). <strong>Tese:</strong> Gong.io reporta que respostas pró-ativas a objeções pré-fechamento elevam win-rate em 23%. Cada email é um obstáculo a menos pra decisão.</div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-center gap-4">
+          <div class="md:w-1/4"><div class="font-mono text-xs text-aw-blue mb-1">SEQ 8 · IMPLEMENTAÇÃO</div><div class="font-bold">↑ Time-to-value · ↓ churn</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Cliente fechou. 4 emails de handoff alinham expectativa (14 dias até produção · cronograma · responsabilidades). <strong>Tese:</strong> Pendo Net Retention Study mostra que onboarding estruturado em ≤14 dias reduz churn early-stage em 40%. Esse fluxo protege a receita já vendida.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4">10 boas práticas B2B SaaS aplicadas</h2>
+    <p class="text-lg text-gray-soft mb-12">Cada uma dessas está hard-coded em todos os 35 emails. Validar uma falha = encontrar lacuna estrutural.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">01 · MOBILE-FIRST</div><p class="text-sm leading-relaxed">≥70% dos opens em B2B vêm de mobile. HTML usa <code class="font-mono">max-width:600</code>, fonte ≥15px, botões com 44px de altura mínima.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">02 · SUBJECT 50 CHARS</div><p class="text-sm leading-relaxed">Mailchimp benchmark: subjects ≤50 char abrem 24% mais. Todos os subjects do playbook respeitam essa janela.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">03 · PREVIEW TEXT EXPLÍCITO</div><p class="text-sm leading-relaxed">Preview text é o "subject 2". Não é repetição — complementa. Lavender mostra que preview text bem-feito eleva open em 12%.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">04 · 1 CTA POR EMAIL</div><p class="text-sm leading-relaxed">Email com 1 CTA tem 371% mais cliques que com múltiplos (WordStream). Todos os 35 emails têm 1 botão primário + links texto secundários.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">05 · PERSONALIZAÇÃO ALÉM DO NOME</div><p class="text-sm leading-relaxed">Seq 2: leak_point. Seq 3: referrer_name. Seq 5: meeting_at. Personalização declarada > genérica.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">06 · PROVA SOCIAL EMPILHADA</div><p class="text-sm leading-relaxed">Cases sempre em 1ª pessoa, ROI primeiro ("112x · G4 Educação"), 3 cases empilhados quando possível. Nunca narrativa 3ª pessoa.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">07 · ANTI-PROMESSA</div><p class="text-sm leading-relaxed">Cases são exemplos do que é possível, não promessa pro lead. Garantia "ROI ou dinheiro de volta" cobre o risco sem inflar expectativa.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">08 · BREAK-UP EDUCADO</div><p class="text-sm leading-relaxed">Toda seq termina com email de fechamento. Lead que diz "não" ou ignora não fica num loop infinito. Save brand · save deliverability.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">09 · IDEMPOTÊNCIA</div><p class="text-sm leading-relaxed">UNIQUE(deal_id, sequence_id, email_index). Re-disparar mesmo deal não duplica emails. Crítico em sistemas de webhook.</p></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue mb-2">10 · UNSUBSCRIBE RESPEITADO</div><p class="text-sm leading-relaxed">Tabela <code class="font-mono">email_unsubscribes</code> bloqueia futuras mensagens em runtime (sem precisar editar config). Pode ser global ou por sequence.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-8">Métricas que vamos acompanhar</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card-dark p-8">
+        <div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-3">Saúde do canal</div>
+        <ul class="space-y-2 text-sm">
+          <li>· Delivery rate (&gt;98%)</li>
+          <li>· Bounce rate (&lt;2%)</li>
+          <li>· Spam rate (&lt;0.1%)</li>
+          <li>· Unsubscribe rate (&lt;0.5%)</li>
+        </ul>
+      </div>
+      <div class="card-dark p-8">
+        <div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-3">Engajamento</div>
+        <ul class="space-y-2 text-sm">
+          <li>· Open rate por seq (alvo: ≥35%)</li>
+          <li>· Click rate em CTA WhatsApp (alvo: ≥8%)</li>
+          <li>· Reply rate via zap (alvo: ≥4%)</li>
+          <li>· Show-rate Seq 5 (alvo: ≥80%)</li>
+        </ul>
+      </div>
+      <div class="card-dark p-8">
+        <div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-3">Conversão</div>
+        <ul class="space-y-2 text-sm">
+          <li>· MQL → SQL via cadência (alvo: ≥25%)</li>
+          <li>· No-show recovery Seq 6 (alvo: ≥40%)</li>
+          <li>· Win-rate pós-Seq 7 (delta vs baseline)</li>
+          <li>· Churn early-stage pós-Seq 8 (delta)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-sm text-gray-soft mt-8">Dashboard de acompanhamento será montado na 1ª semana pós-aprovação · refresh diário · split por sequence/email_index/variant.</p>
+  </div>
+</section>
+
+</div><!-- /why -->
+
+<!-- ───────────────────────── MQL vs SQL ───────────────────────── -->
+<div id="gating" class="tab-content">
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4">MQL vs SQL · regra de ouro</h2>
+    <p class="text-lg text-gray-soft max-w-3xl leading-relaxed mb-12">A regra mais importante do playbook. Onde Calendly entra. Onde NÃO entra. Por quê.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div class="card-amber p-8">
+        <div class="pill pill-mql mb-4">MQL</div>
+        <h3 class="text-2xl font-bold mb-3">CTA = WhatsApp do SDR</h3>
+        <p class="leading-relaxed mb-4">Lead preencheu form mas <strong>não foi qualificado ainda</strong>. Mandar pro Calendly é entupir agenda do Closer com lead frio — destrói show-rate.</p>
+        <ul class="text-sm text-gray-soft space-y-2">
+          <li>→ Seq 1 (Matriz) · Seq 2 (RevLeak) · Seq 3 (Indicação) · Seq 4 (Outbound)</li>
+          <li>→ Calendly <strong>NÃO</strong> aparece em copy</li>
+          <li>→ SDR qualifica no zap, depois agenda manualmente OU manda Calendly direto</li>
+        </ul>
+      </div>
+      <div class="card-green p-8">
+        <div class="pill pill-sql mb-4">SQL</div>
+        <h3 class="text-2xl font-bold mb-3">CTA = Calendly + WhatsApp</h3>
+        <p class="leading-relaxed mb-4">Lead já é qualificado: marcou reunião (Seq 5) ou furou uma que estava confirmada (Seq 6). Calendly entra naturalmente — lead já tinha agenda comigo.</p>
+        <ul class="text-sm text-gray-soft space-y-2">
+          <li>→ Seq 5 (Pré-Reunião) · Seq 6 (No-Show)</li>
+          <li>→ Calendly aparece como CTA primário ou de remanejamento</li>
+          <li>→ WhatsApp segue secundário pra dúvida pré-call</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card p-8">
+      <h3 class="text-xl font-bold mb-4">Gate técnico — <span class="font-mono text-base text-aw-blue">is_eligible_for_email_cadencia</span></h3>
+      <p class="text-gray-soft leading-relaxed mb-4">RPC roda no hook antes de qualquer dispatch. Bloqueia lead que veio de origem não-eligible (parceiro, evento, indicação sem form preenchido). Garante que só MQL/SQL com prova de qualificação entram em cadência.</p>
+      <div class="bg-white border border-gray-subtle rounded-lg p-4 font-mono text-sm overflow-x-auto">
+        <span class="text-gray-muted">// Em api/_lib/pipedriveHooks/emailCadencia.js</span><br/>
+        <span class="text-aw-blue">const</span> { eligible, reason } = <span class="text-aw-blue">await</span> checkEligibility({ supabase, customFields, leadEmail });<br/>
+        <span class="text-aw-blue">if</span> (!eligible) <span class="text-aw-blue">return</span> { status: <span class="text-green-600">'partial'</span>, reason };
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-8">Dois cenários de MQL — como atuamos</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-8">
+        <div class="text-sm font-semibold text-aw-blue mb-3">CENÁRIO A</div>
+        <h3 class="text-xl font-bold mb-4">MQL <strong>sem</strong> agendamento</h3>
+        <ol class="space-y-3 text-sm">
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">1</span><span>Lead preenche form (Matriz/RevLeak/Indicação) → MQL stage</span></li>
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">2</span><span>Seq 1/2/3/4 dispara · copy chama pro zap do SDR</span></li>
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">3</span><span>SDR qualifica no zap (BANT/SPIN)</span></li>
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">4</span><span>Se aprova → SDR manda Calendly pessoal OU agenda no Pipedrive direto</span></li>
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">5</span><span>Quando cf_data_reuniao for set → Seq 5 Pré-Reunião assume automaticamente</span></li>
+        </ol>
+      </div>
+      <div class="card p-8">
+        <div class="text-sm font-semibold text-aw-blue mb-3">CENÁRIO B</div>
+        <h3 class="text-xl font-bold mb-4">MQL <strong>com</strong> agendamento</h3>
+        <ol class="space-y-3 text-sm">
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">1</span><span>Lead preenche form E já marca reunião no form (cf_data_reuniao set)</span></li>
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">2</span><span>Roteador prioriza Seq 5 (não Seq 1/2/3/4)</span></li>
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">3</span><span>Copy é "prepara pra call · briefing"</span></li>
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">4</span><span>Calendly aparece pra remanejar se precisar</span></li>
+          <li class="flex gap-3"><span class="font-mono text-aw-blue">5</span><span>Lead virou SQL via path direto · sem precisar de qualificação no zap</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /gating -->
+
+<!-- ───────────────────────── SEQ 1 ───────────────────────── -->
+<div id="seq1" class="tab-content">
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4"><span class="pill pill-mql">MQL · Aquisição</span><span class="font-mono text-sm text-gray-muted">seq_1_matriz_form</span></div>
+    <h2 class="text-4xl font-bold mb-4">Seq 1 · Matriz</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Lead preencheu form Matriz no YayForms. Fluxo principal de aquisição inbound.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="font-mono text-sm">pipeline 9 · stage 49/50 · YayForms 69d7f798</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Voz / Signer</div><div class="text-sm">Owner do deal (SDR) · default Arthur Pelegrino</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">CTA Principal</div><div class="text-sm">WhatsApp deep-link · zero Calendly</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Exit</div><div class="text-sm">won · lost · unsubscribe · cf_data_reuniao set (→ Seq 5)</div></div>
+    </div>
+
+    <h3 class="text-2xl font-bold mb-4 mt-12">Storyline · 6 emails</h3>
+    <table class="spec">
+      <thead><tr><th style="width:80px;">Email</th><th style="width:120px;">Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">E1</td><td class="mono">D+0 (0min)</td><td><strong>{{first_name}}, vi seu cadastro</strong></td><td>Apresentação + 1 case alinhado ao cluster + zap CTA</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+1 (1440min)</td><td><strong>3 cases no seu segmento</strong></td><td>Prova social empilhada · garantia ROI</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+2 (2880min)</td><td><strong>{{first_name}}, vale 20 min?</strong></td><td>Convite direto · sem pressão fechamento</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+4 (5760min)</td><td><strong>Pergunta direta sobre operação</strong></td><td>Investiga dor (5 categorias de leak)</td></tr>
+        <tr><td class="mono">E5</td><td class="mono">D+6 (8640min)</td><td><strong>É você que decide isso?</strong></td><td>Handoff pra decisor · alivia pressão</td></tr>
+        <tr><td class="mono">E6</td><td class="mono">D+9 (12960min)</td><td><strong>Fechando contato (última)</strong></td><td>Break-up educado · porta aberta</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card p-6 mt-8">
+      <div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Slots críticos</div>
+      <div class="font-mono text-sm text-aw-blue">{{first_name}} · {{signer_name}} · {{whatsapp_cta_url}} · {{proof_case_1-3_*}} · {{brand_value_prop}}</div>
+    </div>
+  </div>
+</section>
+</div><!-- /seq1 -->
+
+<!-- ───────────────────────── SEQ 2 ───────────────────────── -->
+<div id="seq2" class="tab-content">
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4"><span class="pill pill-mql">MQL · Aquisição</span><span class="font-mono text-sm text-gray-muted">seq_2_revenue_leakage</span></div>
+    <h2 class="text-4xl font-bold mb-4">Seq 2 · Revenue Leakage</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Lead preencheu form RevLeak v3. <strong>Copy personalizada por leak_point</strong> (5 categorias). Cada email troca slots dinâmicos baseado em onde o lead disse que vaza.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="font-mono text-sm">pipeline 11 · stage 61/62/63 · YayForms 69ea599a</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Voz / Signer</div><div class="text-sm">Owner do deal (SDR RevLeak) · default Arthur Pelegrino</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Personalização</div><div class="text-sm">5 variantes via slot dinâmico (lead_leak_point)</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Exit</div><div class="text-sm">won · lost · unsubscribe · cf_data_reuniao set</div></div>
+    </div>
+
+    <h3 class="text-2xl font-bold mb-4">Variantes por leak_point</h3>
+    <table class="spec mb-8">
+      <thead><tr><th>leak_point</th><th>Case ancorado</th><th>Resultado</th></tr></thead>
+      <tbody>
+        <tr><td>Lead não fecha</td><td><strong>G4 Educação</strong></td><td>112x ROAS · Black Friday</td></tr>
+        <tr><td>Lead some no meio</td><td><strong>Ciência da Conversão</strong></td><td>Aniquilador · follow-up</td></tr>
+        <tr><td>Demoramos pra responder</td><td><strong>Diandra Santos</strong></td><td>9.15x · resposta 24/7</td></tr>
+        <tr><td>Time sem volume</td><td><strong>Emive</strong></td><td>IA Tadeu · 308 agendamentos/Q</td></tr>
+        <tr><td>Não sei onde vaza</td><td><strong>UNIASSELVI</strong></td><td>−75% CPM · +690% conversões</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="text-2xl font-bold mb-4">Storyline · 6 emails</h3>
+    <table class="spec">
+      <thead><tr><th style="width:80px;">Email</th><th style="width:120px;">Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>{{first_name}}, achei onde sua operação vaza</strong></td><td>Diagnóstico imediato + case ancorado no leak_point</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>Quem não mede, não para de perder</strong></td><td>Aprofunda dor · valor da medição</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+2</td><td><strong>Lembra do {{leak_case_cliente}}?</strong></td><td>3 cases empilhados · padrão replicável</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+4</td><td><strong>Posso desenhar isso pra você esta semana?</strong></td><td>Convite reunião · sem pressão</td></tr>
+        <tr><td class="mono">E5</td><td class="mono">D+6</td><td><strong>Talvez seja outra pessoa da sua equipe?</strong></td><td>Handoff p decisor · CRO/Head Comercial/RevOps</td></tr>
+        <tr><td class="mono">E6</td><td class="mono">D+9</td><td><strong>Fechando o contato (última)</strong></td><td>Break-up · porta aberta</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card-highlight p-6 mt-8">
+      <div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-2">Smoke test validado</div>
+      <p class="text-sm">E1 enviado pro kurt@awsales.io · MailerSend ID <span class="font-mono">6a17bdceb6efc566c9f9f3f3</span> · variant <span class="font-mono">nao_fecha</span> → case G4 Educação 112x.</p>
+    </div>
+  </div>
+</section>
+</div><!-- /seq2 -->
+
+<!-- ───────────────────────── SEQ 3 ───────────────────────── -->
+<div id="seq3" class="tab-content">
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4"><span class="pill pill-mql">MQL · Aquisição</span><span class="font-mono text-sm text-gray-muted">seq_3_indicacao</span></div>
+    <h2 class="text-4xl font-bold mb-4">Seq 3 · Indicação</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Lead chegou via indicação (form Indicação preenchido pelo indicador, não pelo lead). Copy honra o referrer sem queimar.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="font-mono text-sm">pipeline 10 · stage 53 · YayForms 696fb243</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Slots especiais</div><div class="font-mono text-sm">{{referrer_name}} · {{referrer_context}}</div></div>
+    </div>
+
+    <table class="spec">
+      <thead><tr><th>Email</th><th>Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>{{referrer_name}} te indicou pra mim</strong></td><td>Abertura citando referrer · sem pitch</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>O que rodamos pra outros indicados</strong></td><td>3 cases · padrão replicável</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+3</td><td><strong>Vale 20 min?</strong></td><td>Convite direto · honra referrer</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+6</td><td><strong>Fechando aqui</strong></td><td>Break-up · "não vou contar pro indicador"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div><!-- /seq3 -->
+
+<!-- ───────────────────────── SEQ 4 ───────────────────────── -->
+<div id="seq4" class="tab-content">
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4"><span class="pill pill-mql">MQL · Outbound</span><span class="font-mono text-sm text-gray-muted">seq_4_outbound</span></div>
+    <h2 class="text-4xl font-bold mb-4">Seq 4 · Outbound Ativo</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Prospecção fria · pesquisa-driven · lead não veio orgânico. Tom mais consultivo, menos calorzinho que MQL form.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="font-mono text-sm">pipeline 7 · stage 35 · YayForms 69f0f4f0</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Voz</div><div class="text-sm">Owner do deal (BDR · default Drin)</div></div>
+    </div>
+
+    <table class="spec">
+      <thead><tr><th>Email</th><th>Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>Observação rápida sobre sua operação</strong></td><td>Cold opener consultivo · 5 categorias de leak</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>Caso que pode espelhar a sua operação</strong></td><td>Case anchor</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+3</td><td><strong>Dúvida direta</strong></td><td>1 pergunta yes/no · resposta no zap</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+6</td><td><strong>Pode ser que eu esteja olhando errado</strong></td><td>Reset · convida correção</td></tr>
+        <tr><td class="mono">E5</td><td class="mono">D+10</td><td><strong>Vou parar de te incomodar</strong></td><td>Break-up</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div><!-- /seq4 -->
+
+<!-- ───────────────────────── SEQ 5 ───────────────────────── -->
+<div id="seq5" class="tab-content">
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4"><span class="pill pill-sql">SQL · Reunião marcada</span><span class="font-mono text-sm text-gray-muted">seq_5_pre_reuniao</span></div>
+    <h2 class="text-4xl font-bold mb-4">Seq 5 · Pré-Reunião</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Lead marcou reunião. Maior impacto direto em show-rate. Calendly aparece (lead já é SQL).</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="text-sm">cf_data_reuniao transicionou vazio → preenchido</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Anchor</div><div class="text-sm">E1 trigger_at · E2/E3 meeting_at (offset negativo)</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">CTAs</div><div class="text-sm">Calendly (remanejar) + briefing + WhatsApp</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Slots especiais</div><div class="font-mono text-sm">{{meeting_date_pretty}} · {{meeting_time}}</div></div>
+    </div>
+
+    <table class="spec">
+      <thead><tr><th>Email</th><th>Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">E1</td><td class="mono">trigger_at +0</td><td><strong>Confirmado pra {{meeting_date_pretty}}</strong></td><td>Confirma + envia briefing (4 perguntas)</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">meeting_at −24h</td><td><strong>Amanhã às {{meeting_time}}</strong></td><td>Véspera · o que sai da call · reforça briefing</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">meeting_at −2h</td><td><strong>Te vejo daqui 2h</strong></td><td>Micro-lembrete · prep técnica · reagendar último-min</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div><!-- /seq5 -->
+
+<!-- ───────────────────────── SEQ 6 ───────────────────────── -->
+<div id="seq6" class="tab-content">
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4"><span class="pill pill-sql">SQL · No-Show</span><span class="font-mono text-sm text-gray-muted">seq_6_no_show</span></div>
+    <h2 class="text-4xl font-bold mb-4">Seq 6 · No-Show</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Lead furou a reunião. Recuperação rápida via Calendly direto + WhatsApp · lead já era SQL pré-furo.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="font-mono text-sm">cf_reuniaoCancelada = Sim (83) + stage Reagendamento</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">CTA</div><div class="text-sm">Calendly direto (botão primário) · WhatsApp secundário</div></div>
+    </div>
+
+    <table class="spec">
+      <thead><tr><th>Email</th><th>Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>{{first_name}}, te perdi hoje</strong></td><td>Confirma no-show educadamente · agenda aberta</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>Ainda dá tempo essa semana</strong></td><td>Lembrete suave · valor + garantia</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+3</td><td><strong>Fechando a janela</strong></td><td>Break-up · porta aberta</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div><!-- /seq6 -->
+
+<!-- ───────────────────────── SEQ 7 ───────────────────────── -->
+<div id="seq7" class="tab-content">
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4"><span class="pill pill-closer">Closer · Pós-call</span><span class="font-mono text-sm text-gray-muted">seq_7_pos_proposta</span></div>
+    <h2 class="text-4xl font-bold mb-4">Seq 7 · Pós-Proposta</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Proposta foi enviada. Closer (Betônico) assume a voz. Sem Calendly · CTA = zap Betônico direto.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="font-mono text-sm">cf_propostaFeita → Sim (48)</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Voz</div><div class="text-sm">Override Closer · Arthur Betônico (user_id 24963721)</div></div>
+    </div>
+
+    <table class="spec">
+      <thead><tr><th>Email</th><th>Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>Proposta no seu colo</strong></td><td>Confirma envio · abre canal de dúvida</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+2</td><td><strong>Perguntas comuns que recebo</strong></td><td>Antecipa 3 objeções (preço/garantia/time)</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+5</td><td><strong>Vamos fechar 1 ponto pendente?</strong></td><td>Convite p decisão · "manda no zap o que falta"</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+10</td><td><strong>Encerrando esse processo</strong></td><td>Break-up · proposta segue aberta</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div><!-- /seq7 -->
+
+<!-- ───────────────────────── SEQ 8 ───────────────────────── -->
+<div id="seq8" class="tab-content">
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-4"><span class="pill pill-closer">Closer · Handoff</span><span class="font-mono text-sm text-gray-muted">seq_8_implementacao</span></div>
+    <h2 class="text-4xl font-bold mb-4">Seq 8 · Implementação</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Cliente fechou. Closer (Betônico) faz handoff técnico. Sem Calendly · setup expectations · primeira semana.</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Trigger</div><div class="font-mono text-sm">stage IMPLEMENTACAO [75, 76, 81, 85]</div></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-gray-muted uppercase tracking-wider mb-2">Voz</div><div class="text-sm">Override Closer · Arthur Betônico (handoff)</div></div>
+    </div>
+
+    <table class="spec">
+      <thead><tr><th>Email</th><th>Schedule</th><th>Subject</th><th>Storyline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">E1</td><td class="mono">D+0</td><td><strong>Decisão tomada · agora a gente entrega</strong></td><td>Cronograma 14d · primeiras 48h · grupo de implementação</td></tr>
+        <tr><td class="mono">E2</td><td class="mono">D+1</td><td><strong>Primeiros passos da implementação</strong></td><td>Cronograma semana 1 · checkpoints técnicos</td></tr>
+        <tr><td class="mono">E3</td><td class="mono">D+5</td><td><strong>Check-in da primeira semana</strong></td><td>Status · validação de outputs · próximo passo</td></tr>
+        <tr><td class="mono">E4</td><td class="mono">D+10</td><td><strong>Agente entrando em produção</strong></td><td>Go-live · Cortex ligado · transição p consultor estratégico</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div><!-- /seq8 -->
+
+<!-- ───────────────────────── OPERACIONAL ───────────────────────── -->
+<div id="ops" class="tab-content">
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4">Operacional</h2>
+    <p class="text-lg text-gray-soft max-w-3xl mb-12">Como ativar, pausar, auditar e estender o sistema.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-8">
+        <h3 class="text-xl font-bold mb-3">Como ativar uma sequência</h3>
+        <p class="text-sm text-gray-soft leading-relaxed mb-4">Cada seq tem 2 flags em <span class="font-mono">email_cadencia_config</span>:</p>
+        <div class="bg-white border border-gray-subtle rounded-lg p-4 font-mono text-xs overflow-x-auto">
+          UPDATE email_cadencia_config<br/>
+          SET enabled = true, dry_run = false<br/>
+          WHERE sequence_id = 'seq_2_revenue_leakage';
+        </div>
+        <p class="text-sm text-gray-soft mt-3"><strong>shadow_mode</strong> = enabled+dry_run · enfileira mas não envia. <strong>queued</strong> = enabled sem dry_run · envia.</p>
+      </div>
+
+      <div class="card p-8">
+        <h3 class="text-xl font-bold mb-3">Como pausar 1 lead específico</h3>
+        <p class="text-sm text-gray-soft leading-relaxed mb-4">Inserir em <span class="font-mono">email_unsubscribes</span>:</p>
+        <div class="bg-white border border-gray-subtle rounded-lg p-4 font-mono text-xs overflow-x-auto">
+          INSERT INTO email_unsubscribes (lead_email, sequence_id)<br/>
+          VALUES ('lead@x.com', NULL);<br/>
+          <span class="text-gray-muted">-- NULL = unsubscribe global · ou specifica sequence_id</span>
+        </div>
+      </div>
+
+      <div class="card p-8">
+        <h3 class="text-xl font-bold mb-3">A/B variants</h3>
+        <p class="text-sm text-gray-soft leading-relaxed">Cada email pode ter N variants. Criar nova row com mesmo (sequence_id, email_index), variant_key diferente, variant_weight (peso da distribuição).</p>
+        <div class="font-mono text-xs mt-3 text-aw-blue">UNIQUE(sequence_id, email_index, variant_key)</div>
+      </div>
+
+      <div class="card p-8">
+        <h3 class="text-xl font-bold mb-3">Auditoria · jobs em produção</h3>
+        <div class="bg-white border border-gray-subtle rounded-lg p-4 font-mono text-xs overflow-x-auto">
+          SELECT sequence_id, status, count(*)<br/>
+          FROM email_cadencia_jobs<br/>
+          GROUP BY sequence_id, status<br/>
+          ORDER BY 1, 2;
+        </div>
+        <p class="text-sm text-gray-soft mt-3">Status: <span class="font-mono">queued · sent · skipped_config · skipped_unsub · shadow_mode · cancelled · failed</span></p>
+      </div>
+    </div>
+
+    <h3 class="text-2xl font-bold mb-6 mt-16">Mapping user_id Pipedrive → WhatsApp</h3>
+    <p class="text-sm text-gray-soft mb-6">Hardcoded em <span class="font-mono">api/_lib/pipedriveHooks/emailCadencia.js → SIGNER_WHATSAPP_BY_USER_ID</span>. Quando a/b SDR ↔ IA AwSales for ligado, mudar o número aqui sem mexer em template.</p>
+
+    <table class="spec">
+      <thead><tr><th>user_id</th><th>Nome</th><th>WhatsApp</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">26000548</td><td>Arthur Pelegrino · SDR Matriz</td><td class="mono">5531993734088</td><td><span class="pill pill-sql">configurado</span></td></tr>
+        <tr><td class="mono">24963721</td><td>Arthur Betônico · Closer</td><td class="mono">–</td><td><span class="pill pill-amber" style="background:#FEF3C7;color:#92400E;">pendente</span></td></tr>
+        <tr><td class="mono">25286494</td><td>Drin · BDR</td><td class="mono">–</td><td><span class="pill" style="background:#FEF3C7;color:#92400E;">pendente</span></td></tr>
+        <tr><td class="mono">25078374</td><td>Gabriel Kol</td><td class="mono">–</td><td><span class="pill" style="background:#FEF3C7;color:#92400E;">pendente</span></td></tr>
+        <tr><td class="mono">23951094</td><td>José</td><td class="mono">–</td><td><span class="pill" style="background:#FEF3C7;color:#92400E;">pendente</span></td></tr>
+        <tr><td class="mono">26351492</td><td>Luana · RevLeak</td><td class="mono">–</td><td><span class="pill" style="background:#FEF3C7;color:#92400E;">pendente</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="card-dark p-8 mt-16">
+      <div class="text-sm font-semibold text-aw-blue mb-3">ROADMAP · A/B SDR ↔ IA AwSales</div>
+      <h3 class="text-2xl font-bold mb-4">Arquitetura já preparada</h3>
+      <p class="text-gray-300 leading-relaxed mb-4">Copy do email não atribui "humano" nem "IA" explicitamente — só "manda zap pra gente". Quando a IA AwSales estiver pronta pra atender, basta:</p>
+      <ol class="text-gray-300 space-y-2 text-sm">
+        <li>1. Trocar o número de WhatsApp no mapping pra apontar pra IA</li>
+        <li>2. Split 50/50 por hash do deal_id em runtime</li>
+        <li>3. Métrica: response_rate + sql_conversion</li>
+      </ol>
+      <p class="text-gray-300 leading-relaxed mt-4 text-sm">Nenhum template precisa mudar.</p>
+    </div>
+  </div>
+</section>
+
+</div><!-- /ops -->
+
+<!-- ───────────────────────── FOOTER ───────────────────────── -->
+<footer class="py-12 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-sm text-gray-muted">
+    <div class="logo-text"><span class="aw">aw</span><span class="sales">sales</span></div>
+    <div>Playbook v1.0 · 2026-05-28</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+  });
+</script>
+
+</body>
+</html>
