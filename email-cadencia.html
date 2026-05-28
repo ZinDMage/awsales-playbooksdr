@@ -98,6 +98,7 @@
   <div class="max-w-6xl mx-auto px-6 flex gap-1 overflow-x-auto">
     <button class="tab-btn active" data-tab="overview">Overview</button>
     <button class="tab-btn" data-tab="why">Por que funciona</button>
+    <button class="tab-btn" data-tab="benchmark">Benchmark Enterprise</button>
     <button class="tab-btn" data-tab="gating">MQL vs SQL</button>
     <button class="tab-btn" data-tab="seq1">Seq 1 · Matriz</button>
     <button class="tab-btn" data-tab="seq2">Seq 2 · RevLeak</button>
@@ -365,6 +366,154 @@
 </section>
 
 </div><!-- /why -->
+<!-- ───────────────────────── BENCHMARK ENTERPRISE ───────────────────────── -->
+<div id="benchmark" class="tab-content">
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-6"><span class="pill pill-neutral">Pesquisa de mercado</span><span class="text-gray-soft text-sm">v1.4 · refactor enterprise-humanizado · 2026-05-28</span></div>
+    <h2 class="text-5xl font-bold mb-4 leading-tight">Como players enterprise<br/><span class="text-aw-blue">comunicam em B2B SaaS.</span></h2>
+    <p class="text-lg text-gray-soft max-w-3xl leading-relaxed">Pesquisa profunda em 22+ fontes (Lavender · Gong · Outreach · Salesloft · Apollo · Stripe · 11x · AiSDR) sobre o que separa email autoritário-humanizado de robotizado-genérico. Aplicado nas 35 copies da AwSales.</p>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-4">5 players de referência</h2>
+    <p class="text-lg text-gray-soft mb-12">Voz típica + 1 exemplo real por player.</p>
+    <div class="space-y-4">
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-start gap-4">
+          <div class="md:w-1/4"><div class="font-bold text-lg">Lavender (Will Allred)</div><div class="text-sm text-gray-soft">coach de email B2B</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Direto, observacional, anti-template. Tese: emails são Legos — observação + pergunta binária + contexto, máx 3-5 linhas. Reply rate do banco Lavender: 20,5%. Não-automatizado bate 12x mais replies que cadência genérica.<br/><strong class="text-aw-blue">Exemplo:</strong> <em>"Will, looks like you're hiring reps."</em></div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-start gap-4">
+          <div class="md:w-1/4"><div class="font-bold text-lg">Outreach + Salesloft</div><div class="text-sm text-gray-soft">incumbents enterprise</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Persona-specific, signal-based. CFO ≠ Director of Product nunca recebe o mesmo email. Templates com signal-based personalization batem 18% reply (vs 3,4% genérico). Pra C-level, são ~9 touches (vs 4 mid-level).<br/><strong class="text-aw-blue">Exemplo:</strong> <em>"Noticed your expansion into [market] — quick question"</em></div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-start gap-4">
+          <div class="md:w-1/4"><div class="font-bold text-lg">Gong</div><div class="text-sm text-gray-soft">data-driven, contrarian</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">Opinada, baseada em estatística agressiva ("analisamos 67M emails e descobrimos…"). Follow-ups Gong evitam recap e vão direto à próxima decisão. Vence por autoridade científica.<br/><strong class="text-aw-blue">Exemplo:</strong> <em>"What 67M emails taught us about closing deals"</em></div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-start gap-4">
+          <div class="md:w-1/4"><div class="font-bold text-lg">Stripe / Linear / Vercel</div><div class="text-sm text-gray-soft">developer enterprise</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">"Stripe sacrifica entusiasmo, Vercel sacrifica explicação." Tudo é precisão imperativa. Verbo "ship" da Vercel. Frases curtas, sem emoji, sem adjetivo decorativo. Email: assinatura mínima, parágrafos de 2 linhas, zero "hope this finds you well".</div>
+        </div>
+      </div>
+      <div class="card p-6">
+        <div class="flex flex-col md:flex-row md:items-start gap-4">
+          <div class="md:w-1/4"><div class="font-bold text-lg">11x.ai / AiSDR</div><div class="text-sm text-gray-soft">concorrentes diretos</div></div>
+          <div class="md:w-3/4 text-sm text-gray-soft leading-relaxed">11x Alice: alto volume mas reviews criticam repetitividade. AiSDR: precision-targeting, "saw your post about X — that hit home. You're right…" — acionável, primeira pessoa, refere conteúdo real.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-4">10 anti-patterns robotizados</h2>
+    <p class="text-lg text-gray-soft mb-12">Antes (genérico/AI tell) vs depois (humano).</p>
+    <table class="spec">
+      <thead><tr><th style="width:40%;">Antes (robotizado)</th><th>Depois (humano)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Saudação genérica</strong><br/>"Lucas, espero que tudo bem por aí!"</td><td>"Lucas — vi sua operação rodando 9 SDRs e R$115k/mês em ads. Pergunta rápida:"</td></tr>
+        <tr><td><strong>2. Adjetivos vazios</strong><br/>"Vi o trabalho incrível que a [empresa] vem fazendo no mercado."</td><td>"Vi que vocês passaram de 30 para 80 clientes em 6 meses."</td></tr>
+        <tr><td><strong>3. Conectivos AI</strong><br/>"Além disso, vale destacar que nossa solução também…"</td><td>"E tem mais um detalhe."</td></tr>
+        <tr><td><strong>4. Triple-promise simétrica</strong><br/>"agentes que vendem, atendem e otimizam 24/7"</td><td>"agente que fecha venda enquanto seu SDR dorme. O resto vem depois."</td></tr>
+        <tr><td><strong>5. Em-dash + parêntese aninhado</strong><br/>"Nossa plataforma — uma infraestrutura autônoma (que combina IA generativa e signals) — entrega…"</td><td>"Nossa plataforma fecha venda sozinha. Sem SDR. Sem CS júnior."</td></tr>
+        <tr><td><strong>6. CTA "no pressure" duplicado</strong><br/>"Sem compromisso, fico feliz em conversar quando puder — só me avise!"</td><td>"Vale 15min essa quinta? Sim/não funciona."</td></tr>
+        <tr><td><strong>7. Recap pesado</strong><br/>"Conforme nossa conversa de terça, onde discutimos os pontos X, Y e Z…"</td><td>"Sobre a quinta-feira:"</td></tr>
+        <tr><td><strong>8. Social proof genérico</strong><br/>"Já ajudamos centenas de empresas a escalar vendas."</td><td>"G4 Educação: 112x ROI em 90 dias. Mesma stack que vou propor pra você."</td></tr>
+        <tr><td><strong>9. Pergunta retórica</strong><br/>"Você já parou pra pensar quanto sua operação perde por mês?"</td><td>"Sua operação perde ~R$80k/mês em leads que não voltam. Calculei pelo seu volume."</td></tr>
+        <tr><td><strong>10. Assinatura pesada</strong><br/>Logo + "Lucas Kurt | Head of Sales | AwSales | site | linkedin | calendário"</td><td>"Kurt — AwSales | wa.me/55…"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12">Pattern enterprise authority · 5 princípios</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-8"><div class="display-num text-3xl mb-4">01</div><h3 class="text-xl font-bold mb-3">Especificidade financeira no subject</h3><p class="text-gray-soft leading-relaxed text-sm">CFO/CEO escaneia por números, categorias de despesa, métricas (NRR, burn, CAC). "Vamos conversar" morre. "R$80k/mês em leads frios" abre.</p></div>
+      <div class="card p-8"><div class="display-num text-3xl mb-4">02</div><h3 class="text-xl font-bold mb-3">Sacrifício deliberado</h3><p class="text-gray-soft leading-relaxed text-sm">Stripe sacrifica entusiasmo, Gong sacrifica neutralidade. Defina o que sua marca NÃO faz. AwSales sacrifica modéstia (assume autoridade, vende garantia ROI ou dinheiro de volta).</p></div>
+      <div class="card p-8"><div class="display-num text-3xl mb-4">03</div><h3 class="text-xl font-bold mb-3">Plain text + parágrafos de 2 linhas</h3><p class="text-gray-soft leading-relaxed text-sm">HTML corporativo cai 25% em open, 21% em CTR vs plain text. CFO descarta automaticamente "branded email" decorado.</p></div>
+      <div class="card p-8"><div class="display-num text-3xl mb-4">04</div><h3 class="text-xl font-bold mb-3">Citação de evento verificável</h3><p class="text-gray-soft leading-relaxed text-sm">Funding round, contratação no LinkedIn, post recente, número público. Signal-based bate genérico 5x em reply rate.</p></div>
+      <div class="card p-8"><div class="display-num text-3xl mb-4">05</div><h3 class="text-xl font-bold mb-3">Persona-specific copy</h3><p class="text-gray-soft leading-relaxed text-sm">Mesmo email pra CFO e Head of Sales = template detectável. Reescreva o ângulo: financeiro vs operacional vs estratégico.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12">Pattern humanizado-acessível · 5 princípios</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-8"><div class="display-num text-3xl mb-4">01</div><h3 class="text-xl font-bold mb-3">Fragmento + ritmo quebrado</h3><p class="text-gray-soft leading-relaxed text-sm">Humano não escreve perfeito. Use frase de 3 palavras seguida de frase de 18. "Vou ser direto. Sua operação perde dinheiro em três pontos que mapeei olhando seu funil público."</p></div>
+      <div class="card p-8"><div class="display-num text-3xl mb-4">02</div><h3 class="text-xl font-bold mb-3">1ª pessoa autorreferente</h3><p class="text-gray-soft leading-relaxed text-sm">"Vou pegar na sua mão" &gt; "Nossa equipe te acompanhará." Evite falso intimismo ("meu querido", "vamos juntos!").</p></div>
+      <div class="card p-8"><div class="display-num text-3xl mb-4">03</div><h3 class="text-xl font-bold mb-3">Erro humano controlado</h3><p class="text-gray-soft leading-relaxed text-sm">Uma vírgula coloquial, um "tipo assim" raro, uma autocorreção ("aliás, deixa eu reformular:"). IA nunca faz isso.</p></div>
+      <div class="card p-8"><div class="display-num text-3xl mb-4">04</div><h3 class="text-xl font-bold mb-3">Confissão de hipótese</h3><p class="text-gray-soft leading-relaxed text-sm">"Posso estar errado, mas pelo seu volume isso deve estar custando ~R$X" &gt; "Sua empresa perde R$X." Humilde-mas-autoritário.</p></div>
+      <div class="card p-8"><div class="display-num text-3xl mb-4">05</div><h3 class="text-xl font-bold mb-3">Microespecificidade</h3><p class="text-gray-soft leading-relaxed text-sm">Nome da campanha que ele rodou, nome do produto, número que só quem leu o site sabe. Bate "personalização com firstName" 10x.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="card-dark p-12 max-w-4xl mx-auto">
+      <div class="text-sm font-semibold text-aw-blue mb-4">SÍNTESE</div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">"Consultor sênior que já viu seu caso 50 vezes."</h2>
+      <p class="text-gray-300 leading-relaxed mb-4 text-lg">Assertivo no diagnóstico. Humilde na hipótese. Direto no pedido.</p>
+      <p class="text-gray-300 leading-relaxed mb-4 text-sm">"Vi 50 operações iguais à sua. 80% perde no mesmo ponto. Posso estar errado sobre você. Vale 15min descobrir?"</p>
+      <p class="text-gray-300 leading-relaxed mb-2 text-sm"><strong class="text-white">Não é:</strong> bro vendedor ("E aí campeão!"), nem McKinsey distante ("Conforme nossa proposta de valor estratégica…"), nem AI suave ("Espero que esteja tudo bem!").</p>
+      <p class="text-gray-300 leading-relaxed text-sm"><strong class="text-white">Regra do espelho:</strong> se você não falaria essa frase ao vivo numa call com o CFO, não escreva.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-4">10 aplicações específicas nas seqs AwSales</h2>
+    <p class="text-lg text-gray-soft mb-12">O que foi mudado em cada sequência nesta versão v1.4.</p>
+    <table class="spec">
+      <thead><tr><th style="width:25%;">Seq</th><th>Aplicação</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Seq 1 · Matriz E1</strong></td><td>Removido "Vi seu cadastro"/"obrigado". Opener: "Vi o que você marcou no diagnóstico — o gargalo está claro."</td></tr>
+        <tr><td><strong>Seq 1 · Matriz E3</strong></td><td>Ultra-curta · Mouse Trap. Subject: "15min essa quinta funciona, {{first_name}}?" + body de 3 frases.</td></tr>
+        <tr><td><strong>Seq 1 · Matriz E5</strong></td><td>Scarcity sem fakery: "Junho fechei 4 dos 6 slots de implementação. Garantia vale enquanto temos capacidade."</td></tr>
+        <tr><td><strong>Seq 2 · RevLeak</strong></td><td>5 variantes por leak_point mantidas. E1 reduz a 3 parágrafos. E4 vira "3 ROIs reais" empilhados.</td></tr>
+        <tr><td><strong>Seq 3 · Indicação E1</strong></td><td>referrer_name NO SUBJECT (+35% open per Lavender warm intro): "João Silva disse que vocês têm o mesmo problema"</td></tr>
+        <tr><td><strong>Seq 4 · Outbound E1</strong></td><td>Mouse Trap puro: 2 parágrafos, lista 5 categorias de leak, pede "1 letra no zap".</td></tr>
+        <tr><td><strong>Seq 5 · Pré-Reunião E1</strong></td><td>Adianta 1 dado (Gong best practice): "Na semana passada a G4 fez 112x rodando o padrão que vou propor pra você."</td></tr>
+        <tr><td><strong>Seq 6 · No-Show E1</strong></td><td>Assumptive low-pressure · 2 saídas: re-marcar OU receber diagnóstico por escrito.</td></tr>
+        <tr><td><strong>Seq 7 · Pós-Proposta E3</strong></td><td>Resource Planning Approach (pclub framework): "Mapeando time pra junho. Até sexta, um sim/não basta."</td></tr>
+        <tr><td><strong>CTA universal</strong></td><td>Varia wording por seq: "Te chamo no WhatsApp" / "Sim, manda os horários" / "Quero o desenho" / "Re-marcar" + "Mandar por escrito"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="py-20 border-t border-gray-subtle bg-gray-subtle">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12">Fontes citadas</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-2">Frameworks de email</div><ul class="text-sm space-y-1 text-gray-soft"><li>· Lavender · email frameworks + cold subject tips</li><li>· Gong · 304k emails analyzed</li><li>· Outreach · 55 sales templates</li><li>· Salesloft · 9 cold B2B templates</li><li>· Apollo · sales email examples</li><li>· pclub.io · Resource Planning Approach</li></ul></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-2">Concorrentes &amp; brand</div><ul class="text-sm space-y-1 text-gray-soft"><li>· AiSDR vs 11x · comparação direta</li><li>· 11x.ai cold outbound review</li><li>· Pixeldarts · Stripe/Linear/Vercel design</li><li>· Topo.io · how to not sound like AI</li><li>· Andrew Bush · AI outreach paradox</li><li>· Medium · death of "Hey FirstName"</li></ul></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-2">Subjects &amp; deliverability</div><ul class="text-sm space-y-1 text-gray-soft"><li>· Instantly · subjects CFO/CTO/Founder</li><li>· Smashsend · HTML vs plain text B2B</li><li>· Saleshandy · cold email C-Level</li><li>· Prospeo · referral templates</li><li>· Klenty · ultimate guide CEO email</li><li>· Superhuman · 8 research-backed examples</li></ul></div>
+      <div class="card p-6"><div class="text-xs font-semibold text-aw-blue uppercase tracking-wider mb-2">Cadência &amp; benchmarks</div><ul class="text-sm space-y-1 text-gray-soft"><li>· SaaSrise · Outbound 2.0</li><li>· Regie.ai · cold intro prompts</li><li>· Martal · cold sequences 2025</li><li>· SalesHive · SaaS B2B benchmarks 2025</li><li>· Cognism · 9 sequences B2B experts</li><li>· HubSpot BR · modelo e-mail B2B</li></ul></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /benchmark -->
+
+
 
 <!-- ───────────────────────── MQL vs SQL ───────────────────────── -->
 <div id="gating" class="tab-content">
